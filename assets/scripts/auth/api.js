@@ -1,6 +1,6 @@
 'use strict';
 
-const app = require('./app-data.js');
+const app = require('../app-data.js');
 
 const signUp = (success, failure, data) => {
   console.log("Sign up request queued");

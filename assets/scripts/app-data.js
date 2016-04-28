@@ -1,8 +1,7 @@
 'use strict';
 
 const app = {
-  // api : 'http://localhost:3000'
-  api : 'http://tic-tac-toe.wdibos.com'
+  api : 'http://localhost:3000'
 };
 
 module.exports = app;

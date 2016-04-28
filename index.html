@@ -33,13 +33,13 @@
                     <a href="#top" onclick = $("#menu-close").click();>Home</a>
                 </li>
                 <li>
-                    <a href="#" onclick = $("#menu-close").click();>Log In</a>
+                    <a href="#" data-toggle="modal" data-target="#log-in-modal" onclick = $("#menu-close").click();>Log In</a>
                 </li>
                 <li>
-                    <a href="#" onclick = $("#menu-close").click();>Register</a>
+                    <a href="#" data-toggle="modal" data-target="#sign-up-modal" onclick = $("#menu-close").click();>Register</a>
                 </li>
                 <li>
-                    <a href="#" onclick = $("#menu-close").click();>Log Out</a>
+                    <a href="#" data-toggle="modal" data-target="#sign-out-modal" onclick = $("#menu-close").click();>Log Out</a>
                 </li>
                 <li>
                     <a href="#user-profile" onclick = $("#menu-close").click();>User Profile</a>
@@ -56,7 +56,7 @@
       <header id="top" class="header">
           <div class="text-vertical-center">
               <h1>Whereoke</h1>
-              <h3><a href="#">Log In</a> / <a href="#">Register</a></h3>
+              <h3><a href="#" data-toggle="modal" data-target="#log-in-modal">Log In</a> / <a href="#" data-toggle="modal" data-target="#sign-up-modal">Register</a></h3>
               <br>
               <a href="#map" class="btn btn-dark btn-lg">Just Show Me the Map</a>
           </div>
@@ -164,5 +164,165 @@
       </footer>
 
     </body>
+
+    <!-- Log In Modal -->
+    <div class="modal fade inverse" id="log-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            
+            <h4 class="modal-title">Log in to play</h4>
+
+          </div>
+          <div class="modal-body">
+            <form id="sign-in">
+              <div class="form-group">
+                <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
+            </form>
+          </div>
+          <div class="form-group">
+            <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#sign-up-modal" class="register-opp">Need to register?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Sign up to play</h4>
+          </div>
+          <div class="modal-body">
+            <form id="sign-up">
+              <div class="form-group">
+                <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <input type="password" name="credentials[password_confirmation]" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
+              </div>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
+            </form>
+          </div>
+          <div class="form-group">
+            <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#log-in-modal" class="register-opp">Already have an account?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign Out Modal -->
+    <div class="modal fade" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Are you sure you want to sign out?</h4>
+          </div>
+          <div class="modal-body">
+            <form id="sign-out">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary" id="btn-logout">Sign Out</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div class="modal fade" id="change-pw-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Change password</h4>
+          </div>
+          <div class="modal-body">
+            <form id="change-pw">
+              <div class="form-group">
+                <input type="password" name="passwords[old]" class="form-control" id="oldPassword" placeholder="Old Password">
+              </div>
+              <div class="form-group">
+                <input type="password" name="passwords[new]" class="form-control" id="newPassword" placeholder="New Password">
+              </div>
+              <button id="cancelPWChange" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button id="submitPWChange" type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Successfully Changed Password Modal -->
+    <div class="modal fade" id="success-pw-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Password Successfully Changed!</h4>
+          </div>
+          <div class="modal-body">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Successfully Registered Modal -->
+    <div class="modal fade" id="success-reg-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Registration Successful!</h4>
+          </div>
+          <div class="modal-body">
+              <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#log-in-modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Incorrect Password -->
+    <div class="modal fade" id="log-in-fail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title invalid" id="myModalLabel">Invalid Password or E-mail Address</h4>
+          </div>
+          <div class="modal-body">
+              <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#log-in-modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Registration Fail Modal -->
+    <div class="modal fade" id="reg-fail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title invalid" id="myModalLabel">Passwords do not match or e-mail already registered</h4>
+          </div>
+          <div class="modal-body">
+              <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#sign-up-modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 </html>

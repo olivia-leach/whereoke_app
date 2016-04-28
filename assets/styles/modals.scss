@@ -1,0 +1,53 @@
+.modal .modal-content {
+  background-color: $trans-black;
+  border: 1px solid $trans-white;
+}
+
+.modal .modal-header, {
+  border-bottom: 1px solid $trans-white;
+}
+
+.close {
+  color: $off-white;
+  opacity: 1;
+
+  &:hover {
+    color: $off-white;
+    opacity: .8;
+  }
+}
+
+.invalid {
+  color: $invalid;
+}
+
+h4 {
+  margin-top: -10px;
+}
+
+.main-title {
+  margin-bottom: 10px;
+}
+
+.tictactoe {
+  width: 200px;
+}
+
+.on-a {
+  margin-bottom: -20px;
+  margin-top: -50px;
+  width: 200px;
+}
+
+.game-history-table {
+  background-color: $off-white;
+  color: $alt-font-color;
+}
+
+.table td {
+  text-align: center;
+}
+
+.table tbody tr:hover {
+  font-weight: bold;
+}
