@@ -23,6 +23,19 @@ const createProfile = (success, failure, data) => {
   }).done(success).fail(failure);
 };
 
+const updateProfile = (success, failure, data) => {
+  console.log("Update profile request queued");
+  $.ajax({
+    method : 'PATCH',
+    url : app.api + '/profiles/' + app.profile.id,
+    processData : false,
+    data,
+    headers: {
+      "content-type": "application/json",
+    },
+  }).done(success).fail(failure);
+};
+
 const getBars = (success, failure) => {
   console.log("Get bars request queued");
   $.ajax({
@@ -61,5 +74,6 @@ module.exports = {
   getBars,
   create,
   update,
-  createProfile
+  createProfile,
+  updateProfile
 };

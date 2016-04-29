@@ -1,6 +1,7 @@
 'use strict';
 
 const app = require('../app-data.js');
+const logic = require('./logic.js');
 
 const createProfileSuccess = (data) => {
   console.log(data);
@@ -12,13 +13,13 @@ const getProfileSuccess = (data) => {
   console.log('profile accessed');
   app.profile = data.profile;
   console.log(app.profile);
+  logic.userProfile();
 };
 
 const updateProfileSuccess = (data) => {
   console.log(data);
   console.log('profile updated');
-  app.profile = data.profile;
-  console.log(app.profile);
+  logic.userProfile();
 };
 
 const getBarsSuccess = (data) => {

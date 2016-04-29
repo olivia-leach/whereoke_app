@@ -1,12 +1,14 @@
+
+
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
     right: 0;
-    width: 250px;
+    width: 200px;
     height: 100%;
     margin-right: -250px;
     overflow-y: auto;
-    background: #222;
+    background: $trans-black;
     -webkit-transition: all 0.4s ease 0s;
     -moz-transition: all 0.4s ease 0s;
     -ms-transition: all 0.4s ease 0s;
@@ -79,4 +81,9 @@
 
 .toggle {
     margin: 5px 5px 0 0;
+}
+
+.icon {
+  font-size: 1.5em;
+  color: $off-white;
 }

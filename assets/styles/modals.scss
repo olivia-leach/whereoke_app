@@ -1,10 +1,13 @@
 .modal .modal-content {
   background-color: $trans-black;
   border: 1px solid $trans-white;
+  color: $off-white;
+  text-align: center;
 }
 
 .modal .modal-header, {
   border-bottom: 1px solid $trans-white;
+  // text-align: center;
 }
 
 .close {

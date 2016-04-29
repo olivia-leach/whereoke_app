@@ -16,10 +16,10 @@
       <div class="main">
 
         <!-- Nav -->
-        <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+        <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><span class="glyphicon glyphicon-menu-hamburger icon" aria-hidden="true"></span></a>
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                <a id="menu-close" href="#" class="btn btn-lg pull-right toggle"><span class="glyphicon glyphicon-remove icon" aria-hidden="true"></span></a>
                 <li class="sidebar-brand">
                     <a href="#top" onclick = $("#menu-close").click();>Whereoke</a>
                 </li>
@@ -81,12 +81,15 @@
           <div class="container">
               <div class="row">
                   <div class="col-lg-12 text-center">
-                      <h2>User Profile</h2>
+                      <h2 id="user-name"></h2>
                       <hr class="small">
                       <div class="row">
                           <div class="col-md-3 col-sm-6">
                               <div class="service-item">
-                                  <h4><strong>Col 1</strong></h4>
+                                  <div id="user-image-holder"></div>
+                                  <label><a href="#" data-toggle="modal" data-target="#profile-pic-modal">
+                                    Change profile picture.
+                                  </a></label>
                               </div>
                           </div>
                           <div class="col-md-3 col-sm-6">
@@ -314,6 +317,49 @@
           </div>
           <div class="modal-body">
               <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#sign-up-modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Pic Modal -->
+    <div class="modal fade" id="profile-pic-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Personalize your icon</h4>
+          </div>
+          <div class="modal-body">
+            <div class="user-icon-wrapper">
+            <ul class="horizontal-list icon-list">
+              <li class='icon-option'>
+                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+              </li>
+              <li class='icon-option'>
+                <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+              </li>
+              <li class='icon-option'>
+                <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+              </li>
+              <li class='icon-option'>
+                <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+              </li>
+              <li class='icon-option'>
+                <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+              </li>
+              <li class='icon-option'>
+                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+              </li>
+              <li class='icon-option' style="display:none">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              </li>
+            </ul>
+            </div>
+            <form id="new-icon-form">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary" data-dismiss="modal" id="btn-new-icon">Submit</button>
+            </form>
           </div>
         </div>
       </div>

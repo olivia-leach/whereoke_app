@@ -1,0 +1,40 @@
+.user-icon-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.user-image {
+  font-size: 8em;
+  border: 1px solid $light-grey;
+  padding: 10px;
+}
+
+.horizontal-list li {
+  display: inline;
+  font-size: 5.5em;
+  padding: 0 15px;
+  text-decoration: none;
+  // color: $off-white;
+  cursor: pointer;
+
+  &:hover {
+    color: $aqua;
+  }
+}
+
+.horizontal-list {
+  padding: 0;
+  text-align: center;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.clicked {
+  color: $aqua;
+}
+
+.clear {
+  color: $off-white;
+}
