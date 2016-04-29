@@ -6,6 +6,7 @@ const logic = require('./logic.js');
 const createProfileSuccess = (data) => {
   console.log(data);
   console.log('profile created');
+  app.profile = data.profile;
 };
 
 const getProfileSuccess = (data) => {
@@ -14,6 +15,7 @@ const getProfileSuccess = (data) => {
   app.profile = data.profile;
   console.log(app.profile);
   logic.userProfile();
+  logic.loadFavorites();
 };
 
 const updateProfileSuccess = (data) => {

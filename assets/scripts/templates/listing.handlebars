@@ -1,0 +1,15 @@
+<div class="fav-list">
+  {{#each data}}
+  <ul class="fav-list-item">
+      <h4 class="bar-name">{{this.name}}</h4>
+      <label class="bar-address">{{this.address}}, {{this.city}}, {{this.state}} {{this.zip}}</label>
+      <span class="rating">
+        <span class="glyphicon glyphicon-heart rating-heart" aria-hidden="true" id="one-heart"></span>
+        <span class="glyphicon glyphicon-heart rating-heart" aria-hidden="true" id="two-hearts"></span>
+        <span class="glyphicon glyphicon-heart rating-heart" aria-hidden="true" id="three-hearts"></span>
+        <span class="glyphicon glyphicon-heart rating-heart" aria-hidden="true" id="four-hearts"></span>
+        <span class="glyphicon glyphicon-heart rating-heart" aria-hidden="true" id="five-hearts"></span>
+      </span>
+  </ul>
+  {{/each}}
+</div>

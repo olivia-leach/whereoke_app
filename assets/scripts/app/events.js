@@ -19,9 +19,16 @@ const addHandlers = () => {
       $('#sidebar-wrapper').toggleClass('active');
   });
 
+  $('#user-icon').mouseover(function() {
+    $('.mouseover-holder').show();
+  });
+
+  $('#user-icon').mouseout(function() {
+    $('.mouseover-holder').hide();
+  });
+
   $('.icon-option').click(function() {
     $('.icon-option').addClass('clear');
-    // e.preventDefault();
     $(this).removeClass('clear');
     $(this).addClass('clicked');
     console.log('icon clicked');

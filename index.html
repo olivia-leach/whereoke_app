@@ -80,31 +80,40 @@
       <section id="user-profile" class="about">
           <div class="container">
               <div class="row">
-                  <div class="col-lg-12 text-center">
-                      <h2 id="user-name"></h2>
-                      <hr class="small">
+                  <div class="col-lg-12 text-left">
+                      <!-- <hr class="small"> -->
                       <div class="row">
-                          <div class="col-md-3 col-sm-6">
+                          <div class="col-md-3 col-sm-6 text-left fav-spots">
                               <div class="service-item">
-                                  <div id="user-image-holder"></div>
-                                  <label><a href="#" data-toggle="modal" data-target="#profile-pic-modal">
-                                    Change profile picture.
-                                  </a></label>
+                                  <div id="user-image-holder" class="user-image-holder">
+                                    <div id="user-icon">
+                                      <span class="glyphicon glyphicon-user user-image" aria-hidden="true"></span>
+                                    </div>
+                                    <!-- <div class="mouseover-holder">
+                                      <div class="mouseover-background">-->
+                                      <label class="change-icon-link">
+                                        <a href="#" class = "update-profile-links" data-toggle="modal" data-target="#profile-pic-modal">
+                                          Change your personal icon
+                                        </a>
+                                      </label>
+                                    <!-- </div>
+                                    </div> -->
+                                  </div>
+
+                                  <h1 id="user-name" class="username"></h1>
+                                  <label id="change-username"><a href="#" class = "update-profile-links">Change username</a></label>
+                                  <h3 id="tag-line"></h3>
+                                  <label><a href="#" class = "update-profile-links">Add or update your tag line</a></label>
                               </div>
                           </div>
-                          <div class="col-md-3 col-sm-6">
-                              <div class="service-item">
-                                  <h4><strong>Col 2</strong></h4>
-                              </div>
+                          <div class="col-md-1 col-sm-0 fav-spots">
+                            <div>
+                            </div>
                           </div>
-                          <div class="col-md-3 col-sm-6">
-                              <div class="service-item">
-                                  <h4><strong>Col 3</strong></h4>
-                              </div>
-                          </div>
-                          <div class="col-md-3 col-sm-6">
-                              <div class="service-item">
-                                  <h4><strong>Col 4</strong></h4>
+                          <div class="col-md-8 col-sm-6 fav-spots">
+                              <div>
+                                  <h3>Favorite Karaoke Spots</h3>
+                                  <div class="favorites-content"></div>
                               </div>
                           </div>
                       </div>
@@ -168,7 +177,7 @@
         <div class="modal-content">
           <div class="modal-header">
 
-            <h4 class="modal-title">Log in to play</h4>
+            <h4 class="modal-title">Log in</h4>
 
           </div>
           <div class="modal-body">
@@ -196,7 +205,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Sign up to play</h4>
+            <h4 class="modal-title" id="myModalLabel">Create new account</h4>
           </div>
           <div class="modal-body">
             <form id="sign-up">
@@ -328,7 +337,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Personalize your icon</h4>
+            <h4 class="modal-title" id="myModalLabel">Chose a new icon</h4>
           </div>
           <div class="modal-body">
             <div class="user-icon-wrapper">

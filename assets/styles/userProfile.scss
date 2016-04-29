@@ -3,10 +3,27 @@
   justify-content: center;
 }
 
+#user-icon {
+  width: 150px;
+}
+
 .user-image {
   font-size: 8em;
-  border: 1px solid $light-grey;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  margin-bottom: -10px;
+  z-index: -1;
+}
+
+.user-image-holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 150px;
 }
 
 .horizontal-list li {
@@ -37,4 +54,43 @@
 
 .clear {
   color: $off-white;
+}
+
+.mouseover-background {
+  background-color: $trans-black;
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.update-profile-links {
+  // color: $font-color;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: .8em;
+  z-index: 1000;
+}
+
+.fav-list {
+  text-decoration: none;
+}
+
+.fav-list-item {
+  padding: 20px 0;
+}
+
+.bar-name {
+  margin-bottom: -2px;
+}
+
+.bar-address {
+  font-weight: normal;
+}
+
+.rating {
+  margin-left: 100px;
+  font-size: 1.5em;
 }

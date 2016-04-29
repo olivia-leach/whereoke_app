@@ -6,7 +6,7 @@ const getProfile = (success, failure) => {
   console.log("Show profile request queued");
   $.ajax({
     method : 'GET',
-    url : app.api + '/profiles/' + app.user.id
+    url : app.api + '/profiles/' + app.user.profile.id,
   }).done(success).fail(failure);
 };
 
