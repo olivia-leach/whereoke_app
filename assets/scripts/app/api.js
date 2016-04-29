@@ -23,6 +23,14 @@ const createProfile = (success, failure, data) => {
   }).done(success).fail(failure);
 };
 
+const getBars = (success, failure) => {
+  console.log("Get bars request queued");
+  $.ajax({
+    method : 'GET',
+    url : app.api + '/bars/'
+  }).done(success).fail(failure);
+};
+
 const create = (success, failure) => {
   console.log("Create new game request queued");
   $.ajax({
@@ -50,6 +58,7 @@ const update = (success, failure, data) => {
 
 module.exports = {
   getProfile,
+  getBars,
   create,
   update,
   createProfile

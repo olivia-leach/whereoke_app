@@ -4,14 +4,28 @@ const app = require('../app-data.js');
 
 const createProfileSuccess = (data) => {
   console.log(data);
-  console.log('profile created')
+  console.log('profile created');
 };
 
 const getProfileSuccess = (data) => {
   console.log(data);
   console.log('profile accessed');
   app.profile = data.profile;
-  console.log(app.profile)
+  console.log(app.profile);
+};
+
+const updateProfileSuccess = (data) => {
+  console.log(data);
+  console.log('profile updated');
+  app.profile = data.profile;
+  console.log(app.profile);
+};
+
+const getBarsSuccess = (data) => {
+  console.log(data);
+  console.log('bars accessed');
+  app.bars = data.bars;
+  console.log(app.bars);
 };
 
 const success = (data) => {
@@ -27,5 +41,7 @@ module.exports = {
   failure,
   success,
   createProfileSuccess,
-  getProfileSuccess
+  getProfileSuccess,
+  getBarsSuccess,
+  updateProfileSuccess
 };

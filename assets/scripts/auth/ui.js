@@ -16,6 +16,7 @@ const signInSuccess = (data) => {
   console.log(app.user);
   console.log(data.user.email + " logged in");
   appApi.getProfile(appUi.getProfileSuccess, appUi.failure);
+  appApi.getBars(appUi.getBarsSuccess, appUi.failure);
 };
 
 // const changePWSuccess = () => {

@@ -16,11 +16,6 @@ const addHandlers = () => {
       $("#sidebar-wrapper").toggleClass("active");
   });
 
-  // Get fav bars button clicked
-  $('#get-bars').click(function(event) {
-    event.preventDefault();
-    appApi.getProfile(appUi.getProfileSuccess, appUi.fail);
-  })
 };
 
 module.exports = {
