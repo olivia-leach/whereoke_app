@@ -1,6 +1,8 @@
 'use strict';
 
 const app = require('../app-data.js');
+const appApi = require('../app/api.js')
+const appUi = require('../app/ui.js')
 
 const signOutSuccess = (data) => {
   app.user = data;
@@ -9,9 +11,11 @@ const signOutSuccess = (data) => {
 };
 
 const signInSuccess = (data) => {
+  console.log(data);
   app.user = data.user;
   console.log(app.user);
   console.log(data.user.email + " logged in");
+  appApi.getProfile(appUi.getProfileSuccess, appUi.failure);
 };
 
 // const changePWSuccess = () => {
@@ -21,10 +25,14 @@ const signInSuccess = (data) => {
 //   $("#success-pw-modal").modal('show');
 // };
 
-const registerSuccess = () => {
+const registerSuccess = (data) => {
   console.log("registration successful");
   $("#sign-up-modal").modal('hide');
   $("#success-reg-modal").modal('show');
+  app.user = data.user;
+  console.log(data.user);
+  let newUserID = '{ "profile": { "user_id":' + app.user.id + ' } }';
+  appApi.createProfile(appUi.createProfileSuccess, appUi.failure, newUserID);
 };
 
 const success = (data) => {

@@ -1,14 +1,24 @@
 'use strict';
 
-const app = require('./app-data.js');
+const app = require('../app-data.js');
 
-const index = (success, failure) => {
-  console.log("Get games request queued");
+const getProfile = (success, failure) => {
+  console.log("Show profile request queued");
   $.ajax({
     method : 'GET',
-    url : app.api + '/games',
+    url : app.api + '/profiles/' + app.user.id
+  }).done(success).fail(failure);
+};
+
+const createProfile = (success, failure, data) => {
+  console.log("Create new profile request queued");
+  $.ajax({
+    method : 'POST',
+    url : app.api + '/profiles',
+    processData : false,
+    data,
     headers: {
-      Authorization: 'Token token=' + app.user.token,
+      "content-type": "application/json",
     },
   }).done(success).fail(failure);
 };
@@ -39,7 +49,8 @@ const update = (success, failure, data) => {
 };
 
 module.exports = {
-  index,
+  getProfile,
   create,
-  update
+  update,
+  createProfile
 };
