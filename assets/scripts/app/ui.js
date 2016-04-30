@@ -17,7 +17,6 @@ const getProfileSuccess = (data) => {
   console.log(app.profile);
   logic.userProfile();
   logic.loadFavorites();
-  $('#day-of-week').text(logic.today);
 };
 
 const updateProfileSuccess = (data) => {
@@ -32,7 +31,6 @@ const getBarsSuccess = (data) => {
   app.bars = data.bars;
   console.log(app.bars);
   logic.filterBarsOnDay();
-  // google.mapGeocoder();
 };
 
 const success = (data) => {
