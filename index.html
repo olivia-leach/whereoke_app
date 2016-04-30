@@ -9,6 +9,10 @@
         <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
         <link href="assets/styles/header.css" rel="stylesheet">
 
+        <!-- for google map -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyIX1_gmBhMrXFfGI_0bDXRQibEGqW_B0&callback=initMap" async defer></script>
+        <script src="/assets/scripts/app/google_map_init.js"></script>
+
     </head>
 
     <body>
@@ -52,29 +56,22 @@
               <h1>Whereoke</h1>
               <h3><a href="#" data-toggle="modal" data-target="#log-in-modal">Log In</a> / <a href="#" data-toggle="modal" data-target="#sign-up-modal">Register</a></h3>
               <br>
-              <a href="#map" class="btn btn-dark btn-lg">Just Show Me the Map</a>
+              <a href="#map" class="btn btn-dark btn-lg" id="just-show">Just Show Me the Map</a>
           </div>
       </header>
 
       <!-- Map -->
-      <aside id="map" class="map-area bg-primary">
+      <aside id="map-title" class="map-area bg-primary">
           <div class="container">
               <div class="row">
                   <div class="col-lg-12 text-center">
-                      <h3>Today is Wednesday, and I gotta sing.</h3>
+                      <h3>Today is <span id="day-of-week">Wednesday</span>, and I gotta sing.</h3>
                   </div>
               </div>
           </div>
       </aside>
 
-      <section id="contact" class="map">
-          <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-          <br />
-          <small>
-              <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-          </small>
-          </iframe>
-      </section>
+      <div id="map" class="map"></div>
 
       <!-- User Profile -->
       <section id="user-profile" class="about">

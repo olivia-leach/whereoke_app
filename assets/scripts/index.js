@@ -2,12 +2,12 @@
 
 const appEvents = require('./app/events.js');
 const authEvents = require('./auth/events.js');
+const appApi = require('./app/api.js');
+const appUi = require('./app/ui.js');
 
 // On document ready
 $(() => {
   appEvents.addHandlers();
   authEvents.addHandlers();
-  // $("#signOutButton").hide();
-  // $("#welcome").hide();
-  // $("#log-in-modal").modal('show');
+  appApi.getBars(appUi.getBarsSuccess, appUi.failure);
 });

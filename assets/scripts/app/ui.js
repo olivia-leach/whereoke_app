@@ -2,6 +2,7 @@
 
 const app = require('../app-data.js');
 const logic = require('./logic.js');
+const google = require('./google_map_add.js');
 
 const createProfileSuccess = (data) => {
   console.log(data);
@@ -16,6 +17,7 @@ const getProfileSuccess = (data) => {
   console.log(app.profile);
   logic.userProfile();
   logic.loadFavorites();
+  $('#day-of-week').text(logic.today);
 };
 
 const updateProfileSuccess = (data) => {
@@ -29,6 +31,8 @@ const getBarsSuccess = (data) => {
   console.log('bars accessed');
   app.bars = data.bars;
   console.log(app.bars);
+  logic.filterBarsOnDay();
+  // google.mapGeocoder();
 };
 
 const success = (data) => {

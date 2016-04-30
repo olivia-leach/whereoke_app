@@ -1,7 +1,23 @@
 'use strict';
 
 const app = require('../app-data.js');
-// const gameApi = require('./gameApi.js');
+const google = require('./google_map_add.js');
+
+const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const today = daysOfWeek[(new Date()).getDay()];
+
+const filterBarsOnDay = () => {
+  let allBars = app.bars;
+  let barsToday = [];
+  for (let i = 0; i < allBars.length; i++) {
+    if (allBars[i].nights.includes(today) ) {
+      barsToday.push(allBars[i]);
+    }
+  }
+  app.barsByDay = barsToday;
+  console.log(app.barsByDay);
+  google.mapGeocoder();
+};
 
 const userProfile = () => {
 
@@ -31,5 +47,7 @@ const loadFavorites = () => {
 
 module.exports = {
   userProfile,
-  loadFavorites
+  loadFavorites,
+  filterBarsOnDay,
+  today
 };

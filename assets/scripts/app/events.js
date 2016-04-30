@@ -19,14 +19,6 @@ const addHandlers = () => {
       $('#sidebar-wrapper').toggleClass('active');
   });
 
-  $('#user-icon').mouseover(function() {
-    $('.mouseover-holder').show();
-  });
-
-  $('#user-icon').mouseout(function() {
-    $('.mouseover-holder').hide();
-  });
-
   $('.icon-option').click(function() {
     $('.icon-option').addClass('clear');
     $(this).removeClass('clear');
@@ -42,6 +34,11 @@ const addHandlers = () => {
     let data = '{ "profile": { "pic": "' + app.profile.pic + '" } }';
     appApi.updateProfile(appUi.updateProfileSuccess, appUi.failure, data);
   });
+
+  // $('.glyphicon-heart').click (function() {
+  //   console.log('five hearts');
+  //   // $(this).attr("color: pink");
+  // });
 
 };
 
