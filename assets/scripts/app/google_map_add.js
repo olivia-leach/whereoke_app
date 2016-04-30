@@ -10,8 +10,12 @@ const mapGeocoder = function() {
   let bars = app.barsByDay;
   // console.log(bars);
   let addresses = [];
+  let names = [];
+  let cityStates = [];
   for (let i = 0; i < bars.length; i++) {
     addresses.push(bars[i].address + ', ' + bars[i].city + ', ' + bars[i].state);
+    names.push(bars[i].name);
+    cityStates.push(bars[i].city + ', ' + bars[i].state);
   }
 
   console.log(addresses);
@@ -35,7 +39,7 @@ const mapGeocoder = function() {
         map.setCenter(results[0].geometry.location);
 
           let infowindow = new google.maps.InfoWindow(
-              { content: '<b>'+addresses[i]+'</b>',
+              { content: '<b>'+names[i]+'</b><br>'+cityStates[i],
                 size: new google.maps.Size(150,50)
               });
 
