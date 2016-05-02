@@ -3,6 +3,7 @@
     <a href="#" id="edit-favorites">Edit Favorites</a>
     <a href="#" id="done-edit-favorites" hidden>Done Editing</a>
   </h6>
+  <div class="list-of-favs">
   {{#each data}}
   <ul class="fav-list-item">
       <h4 class="bar-name">{{this.name}}</h4>
@@ -19,6 +20,7 @@
     </span>
   </ul>
   {{/each}}
+</div>
 </div>
 
 {{#each data}}

@@ -71,11 +71,20 @@ const loadBarCarousel = () => {
   }));
 };
 
-const removeFavSuccess = (data) => {
-  console.log(data);
+const removeFavSuccess = () => {
   console.log('Favorite removed');
-  // app.profile.fav_bars.unshift(app.bars[data.favorite.bar_id - 1]);
-  // loadFavorites();
+  for (let i = 0; i < app.profile.fav_bars.length; i++) {
+    if (app.profile.fav_bars[i].id == app.removedBar) {
+      app.profile.fav_bars.splice(i, 1);
+    }
+  }
+  console.log('reloading favorites...');
+  let data = app.profile.fav_bars;
+  let listingTemplate = require('../templates/just-favs.handlebars');
+  $('.list-of-favs').children().remove();
+  $('.list-of-favs').append(listingTemplate({
+    data
+  }));
 };
 
 const removeFavfailure = (error) => {
@@ -85,6 +94,8 @@ const removeFavfailure = (error) => {
 const newFavSuccess = (data) => {
   console.log(data);
   console.log('New favorite added');
+  app.profile.favorites.unshift(data.favorite);
+  console.log(app.profile.favorites);
   app.profile.fav_bars.unshift(app.bars[data.favorite.bar_id - 1]);
   loadFavorites();
 };
@@ -109,13 +120,13 @@ const removeBarFavorite = () => {
   $('.remove-favorite').on('submit', function (event) {
     event.preventDefault();
     let data = getFormFields(this);
+    app.removedBar = data.favorite.bar_id;
     let fav_id;
     for (let i = 0; i < app.profile.favorites.length; i++) {
       if (app.profile.favorites[i].bar_id == data.favorite.bar_id) {
         fav_id = app.profile.favorites[i].id;
       }
     }
-    // let dataJSON = '{ "favorite": { "bar_id": ' + data.favorite.bar_id + ', "profile_id":' + app.profile.id + ' } }';
     appApi.removeFavorite(removeFavSuccess, removeFavfailure, fav_id);
     $(".remove-favorites-modal").modal('hide');
     $(".modal-backdrop").hide();
