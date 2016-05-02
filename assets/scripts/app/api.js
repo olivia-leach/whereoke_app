@@ -57,10 +57,22 @@ const newFavorite = (success, failure, data) => {
   }).done(success).fail(failure);
 };
 
+const removeFavorite = (success, failure, favID) => {
+  console.log("Delete favorite request queued");
+  $.ajax({
+    method : 'DELETE',
+    url : app.api + '/favorites/' + favID,
+    headers : {
+      "content-type": "application/json",
+    },
+  }).done(success).fail(failure);
+};
+
 module.exports = {
   getProfile,
   getBars,
   createProfile,
   updateProfile,
-  newFavorite
+  newFavorite,
+  removeFavorite
 };

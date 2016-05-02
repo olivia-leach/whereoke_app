@@ -64,6 +64,8 @@ const addHandlers = () => {
   //   // $(this).attr("color: pink");
   // });
 
+
+
 };
 
 module.exports = {

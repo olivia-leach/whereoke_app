@@ -1,8 +1,13 @@
 <div class="fav-list">
+  <h6>
+    <a href="#" id="edit-favorites">Edit Favorites</a>
+    <a href="#" id="done-edit-favorites" hidden>Done Editing</a>
+  </h6>
   {{#each data}}
   <ul class="fav-list-item">
       <h4 class="bar-name">{{this.name}}</h4>
       <label class="bar-address">{{this.address}}, {{this.city}}, {{this.state}} {{this.zip}}</label>
+      <span class="rating-delete-group">
       <span class="rating">
         <span class="glyphicon glyphicon-heart rating-heart" aria-hidden="true" id="one-heart"></span>
         <span class="glyphicon glyphicon-heart rating-heart" aria-hidden="true" id="two-hearts"></span>
@@ -10,8 +15,30 @@
         <span class="glyphicon glyphicon-heart rating-heart" aria-hidden="true" id="four-hearts"></span>
         <span class="glyphicon glyphicon-heart rating-heart" aria-hidden="true" id="five-hearts"></span>
       </span>
-      <label class="update-profile-links delete-bar"><a href="#">Delete this bar from favorites</a></label>
+      <span class="btn-delete-bar" hidden><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#remove-favorites-modal-{{this.id}}">Remove</button></span>
+    </span>
   </ul>
   {{/each}}
-  <h6><a href="#">Edit Favorites</a> // <a href="#">Add Favorites</a></h6>
 </div>
+
+{{#each data}}
+  <div class="modal fade remove-favorites-modal" id="remove-favorites-modal-{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Remove {{this.name}} from favorites?</h4>
+        </div>
+        <div class="modal-body">
+          <form id="remove-favorite-{{this.id}}" class="remove-favorite">
+            <div class="form-group" hidden>
+              <textarea name="favorite[bar_id]" class="form-control">{{this.id}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Yes, please</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/each}}

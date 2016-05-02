@@ -45,6 +45,19 @@ const loadFavorites = () => {
   $('.favorites-content').append(listingTemplate({
     data
   }));
+  $('#edit-favorites').on('click', function(event) {
+    event.preventDefault();
+    $('.btn-delete-bar').show();
+    $(this).hide();
+    $('#done-edit-favorites').show();
+  });
+  $('#done-edit-favorites').on('click', function(event) {
+    event.preventDefault();
+    $('.btn-delete-bar').hide();
+    $(this).hide();
+    $('#edit-favorites').show();
+  });
+  removeBarFavorite();
 };
 
 const loadBarCarousel = () => {
@@ -58,6 +71,17 @@ const loadBarCarousel = () => {
   }));
 };
 
+const removeFavSuccess = (data) => {
+  console.log(data);
+  console.log('Favorite removed');
+  // app.profile.fav_bars.unshift(app.bars[data.favorite.bar_id - 1]);
+  // loadFavorites();
+};
+
+const removeFavfailure = (error) => {
+  console.error(error);
+};
+
 const newFavSuccess = (data) => {
   console.log(data);
   console.log('New favorite added');
@@ -65,7 +89,7 @@ const newFavSuccess = (data) => {
   loadFavorites();
 };
 
-const failure = (error) => {
+const newFavfailure = (error) => {
   console.error("This bar is already in your favorites.");
   $("#fav-fail-modal").modal('show');
 };
@@ -75,8 +99,25 @@ const addBarFavorite = () => {
     event.preventDefault();
     let data = getFormFields(this);
     let dataJSON = '{ "favorite": { "bar_id": ' + data.favorite.bar_id + ', "profile_id":' + app.profile.id + ' } }';
-    appApi.newFavorite(newFavSuccess, failure, dataJSON);
+    appApi.newFavorite(newFavSuccess, newFavfailure, dataJSON);
     $(".add-favorites-modal").modal('hide');
+    $(".modal-backdrop").hide();
+  });
+};
+
+const removeBarFavorite = () => {
+  $('.remove-favorite').on('submit', function (event) {
+    event.preventDefault();
+    let data = getFormFields(this);
+    let fav_id;
+    for (let i = 0; i < app.profile.favorites.length; i++) {
+      if (app.profile.favorites[i].bar_id == data.favorite.bar_id) {
+        fav_id = app.profile.favorites[i].id;
+      }
+    }
+    // let dataJSON = '{ "favorite": { "bar_id": ' + data.favorite.bar_id + ', "profile_id":' + app.profile.id + ' } }';
+    appApi.removeFavorite(removeFavSuccess, removeFavfailure, fav_id);
+    $(".remove-favorites-modal").modal('hide');
     $(".modal-backdrop").hide();
   });
 };
@@ -87,5 +128,6 @@ module.exports = {
   filterBarsOnDay,
   today,
   loadBarCarousel,
-  addBarFavorite
+  addBarFavorite,
+  removeBarFavorite
 };

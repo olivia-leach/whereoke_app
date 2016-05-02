@@ -100,12 +100,17 @@
 }
 
 .rating {
-  margin-left: 100px;
+  // position: absolute;
+  // right: 250px;
   font-size: 1.5em;
   color: $pink;
 }
 
-.delete-bar {
+.btn-delete-bar {
   margin-left: 50px;
-  visibility: hidden;
+}
+
+.rating-delete-group {
+  position: absolute;
+  left: 350px;
 }
