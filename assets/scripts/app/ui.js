@@ -33,10 +33,12 @@ const getBarsSuccess = (data) => {
   for (let i = 0; i < app.bars.length; i++) {
     let bar = app.bars[i];
     let sum = 0;
+    if (bar.reviews.length > 0) {
       for (let i = 0; i < bar.reviews.length; i++) {
-        let sum = sum += bar.reviews[i].rating;
+        sum += bar.reviews[i].rating;
       }
-    bar.avgRating = sum / bar.reviews.length;
+      bar.avgRating = sum / bar.reviews.length;
+    }
   }
 
   console.log(app.bars);

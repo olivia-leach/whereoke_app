@@ -16,8 +16,8 @@
           <h2>{{this.name}}</h2>
           <h4>{{this.address}}, {{this.city}}, {{this.state}}</h4>
           <h5>{{this.nights}}</h5>
-          {{#if this.reviews.rating}}
-            <h6>Average user rating: {{this.reviews.length}}</h6>
+          {{#if this.avgRating}}
+            <h6>Average user rating: {{this.avgRating}}</h6>
           {{else}}
             <h6>Bar not yet rated by any users</h6>
           {{/if}}
