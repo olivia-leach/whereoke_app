@@ -67,6 +67,7 @@ const newFavSuccess = (data) => {
 
 const failure = (error) => {
   console.error("This bar is already in your favorites.");
+  $("#fav-fail-modal").modal('show');
 };
 
 const addBarFavorite = () => {
