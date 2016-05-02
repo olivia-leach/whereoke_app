@@ -31,6 +31,9 @@ const getBarsSuccess = (data) => {
   app.bars = data.bars;
   console.log(app.bars);
   logic.filterBarsOnDay();
+  logic.loadBarCarousel();
+  $('#carousel-inner').children().first().toggleClass('active');
+  $('#carousel-indicators').children().first().toggleClass('active');
 };
 
 const success = (data) => {

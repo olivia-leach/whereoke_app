@@ -1,376 +1,376 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
+  <head>
 
-        <title>Whereoke</title>
+    <title>Whereoke</title>
 
-        <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
-        <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
-        <link href="assets/styles/header.css" rel="stylesheet">
+    <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+    <link href="assets/styles/header.css" rel="stylesheet">
 
-        <!-- for google map -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyIX1_gmBhMrXFfGI_0bDXRQibEGqW_B0&callback=initMap" async defer></script>
-        <script src="/assets/scripts/app/google_map_init.js"></script>
+    <!-- for google map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyIX1_gmBhMrXFfGI_0bDXRQibEGqW_B0&callback=initMap" async defer></script>
+    <script src="/assets/scripts/app/google_map_init.js"></script>
 
-    </head>
+  </head>
 
-    <body>
+  <body>
 
-      <div class="main">
+    <div class="main">
 
-        <!-- Nav -->
-        <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><span class="glyphicon glyphicon-menu-hamburger icon" aria-hidden="true"></span></a>
-        <nav id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <a id="menu-close" href="#" class="btn btn-lg pull-right toggle"><span class="glyphicon glyphicon-remove icon" aria-hidden="true"></span></a>
-                <li class="sidebar-brand">
-                    <a href="#top" onclick = $("#menu-close").click();>Whereoke</a>
-                </li>
-                <li>
-                    <a href="#top" onclick = $("#menu-close").click();>Home</a>
-                </li>
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#log-in-modal" onclick = $("#menu-close").click();>Log In</a>
-                </li>
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#sign-up-modal" onclick = $("#menu-close").click();>Register</a>
-                </li>
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#sign-out-modal" onclick = $("#menu-close").click();>Log Out</a>
-                </li>
-                <li>
-                    <a href="#user-profile" onclick = $("#menu-close").click();>User Profile</a>
-                </li>
-                <li>
-                    <a href="#map-title" onclick = $("#menu-close").click();>Map</a>
-                </li>
-            </ul>
-        </nav>
+      <!-- Nav -->
+      <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><span class="glyphicon glyphicon-menu-hamburger icon" aria-hidden="true"></span></a>
+      <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <a id="menu-close" href="#" class="btn btn-lg pull-right toggle"><span class="glyphicon glyphicon-remove icon" aria-hidden="true"></span></a>
+          <li class="sidebar-brand">
+              <a href="#top" onclick = $("#menu-close").click();>Whereoke</a>
+          </li>
+          <li>
+              <a href="#top" onclick = $("#menu-close").click();>Home</a>
+          </li>
+          <li id="log-in-menu-button">
+              <a href="#" data-toggle="modal" data-target="#log-in-modal" onclick = $("#menu-close").click();>Log In</a>
+          </li>
+          <li id="sign-up-menu-button">
+              <a href="#" data-toggle="modal" data-target="#sign-up-modal" onclick = $("#menu-close").click();>Register</a>
+          </li>
+          <li id="sign-out-menu-button" hidden>
+              <a href="#" data-toggle="modal" data-target="#sign-out-modal" onclick = $("#menu-close").click();>Log Out</a>
+          </li>
+          <li id="user-profile-menu-button" hidden>
+              <a href="#user-profile" onclick = $("#menu-close").click();>User Profile</a>
+          </li>
+          <li id="map-menu-button">
+              <a href="#map-title" onclick = $("#menu-close").click();>Map</a>
+          </li>
+        </ul>
+      </nav>
 
+    </div>
+
+    <!-- Header -->
+    <div class='header-image'></div>
+
+    <div class="rest-of-header">
+    <header id="top logged-out-header" class="header">
+        <div class="text-vertical-center">
+          <h1>Whereoke</h1>
+          <h3><a href="#" data-toggle="modal" data-target="#log-in-modal">Log In</a> / <a href="#" data-toggle="modal" data-target="#sign-up-modal">Register</a></h3>
+        </div>
+        <div class="text-vertical-bottom">
+        <a href="#map-title" id="just-show" class="just-show">
+          Just Show Me the Map
+          <br>
+          <span class="glyphicon glyphicon-menu-down"</span>
+        </a>
       </div>
+    </header>
 
-      <!-- Header -->
-      <header id="top" class="header">
-          <div class="text-vertical-center">
-              <h1>Whereoke</h1>
-              <h3><a href="#" data-toggle="modal" data-target="#log-in-modal">Log In</a> / <a href="#" data-toggle="modal" data-target="#sign-up-modal">Register</a></h3>
-              <br>
-              <a href="#map-title" class="btn btn-dark btn-lg" id="just-show">Just Show Me the Map</a>
+    <header id="top logged-in-header" class="header" hidden>
+      <div class="text-vertical-center">
+        <h1>Whereoke</h1>
+        <br>
+        <a href="#map-title" class="btn btn-dark btn-lg" id="just-show">Show Me the Map</a>
+        <br>
+        <span class="glyphicon glyphicon-chevron-down"</span>
+      </div>
+    </header>
+  </div>
+
+    <!-- Map -->
+    <aside id="map-title" class="map-area bg-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h3>Today is <!--<span id="day-of-week">Wednesday</span>, and I gotta sing.</h3>-->
+            <span class="dropdown">
+              <a id="day-of-week" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white"></a>
+              <ul class="dropdown-menu" aria-labelledby="dLabel" style="color:black">
+                <li id="new-date-picked">Monday</li>
+                <li id="new-date-picked">Tuesday</li>
+                <li id="new-date-picked">Wednesday</li>
+                <li id="new-date-picked">Thursday</li>
+                <li id="new-date-picked">Friday</li>
+                <li id="new-date-picked">Saturday</li>
+                <li id="new-date-picked">Sunday</li>
+              </ul>
+            </span>
+            and I gotta hankering for some singing.</h3>
           </div>
-      </header>
+        </div>
+      </div>
+    </aside>
 
-      <!-- Map -->
-      <aside id="map-title" class="map-area bg-primary">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-12 text-center">
-                      <h3>Today is <span id="day-of-week">Wednesday</span>, and I gotta sing.</h3>
+    <div id="map" class="map"></div>
+
+    <!-- User Profile -->
+    <section id="user-profile" class="about" hidden>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-left">
+              <!-- <hr class="small"> -->
+            <div class="row">
+              <div class="col-md-3 col-sm-6 text-left fav-spots">
+                <div class="service-item">
+                  <div id="user-image-holder" class="user-image-holder">
+                    <div id="user-icon">
+                      <span class="glyphicon glyphicon-user user-image" aria-hidden="true"></span>
+                    </div>
+                    <!-- <div class="mouseover-holder">
+                      <div class="mouseover-background">-->
+                    <label class="change-icon-link">
+                      <a href="#" class = "update-profile-links" data-toggle="modal" data-target="#profile-pic-modal" id="change-profile-setting" style="visibility: hidden">
+                        Change your personal icon
+                      </a>
+                    </label>
+                    <!-- </div>
+                    </div> -->
                   </div>
+
+                  <h1 id="user-name" class="username"></h1>
+                  <label id="change-username"><a href="#" class = "update-profile-links" id="change-profile-setting" style="visibility: hidden">Change username</a></label>
+                  <h3 id="tag-line"></h3>
+                  <label><a href="#" class = "update-profile-links" id="change-profile-setting" style="visibility: hidden">Add or update your tag line</a></label>
+                  <br>
+                  <label style="font-size: 1.5em"><a href="#" class = "update-profile" id="edit-profile">Edit your profile</a></label>
+                  <label style="font-size: 1.5em"><a href="#" class = "update-profile" id="done-editing-profile" hidden>Done editing</a></label>
+                </div>
               </div>
-          </div>
-      </aside>
-
-      <div id="map" class="map"></div>
-
-      <!-- User Profile -->
-      <section id="user-profile" class="about">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-12 text-left">
-                      <!-- <hr class="small"> -->
-                      <div class="row">
-                          <div class="col-md-3 col-sm-6 text-left fav-spots">
-                              <div class="service-item">
-                                  <div id="user-image-holder" class="user-image-holder">
-                                    <div id="user-icon">
-                                      <span class="glyphicon glyphicon-user user-image" aria-hidden="true"></span>
-                                    </div>
-                                    <!-- <div class="mouseover-holder">
-                                      <div class="mouseover-background">-->
-                                      <label class="change-icon-link">
-                                        <a href="#" class = "update-profile-links" data-toggle="modal" data-target="#profile-pic-modal">
-                                          Change your personal icon
-                                        </a>
-                                      </label>
-                                    <!-- </div>
-                                    </div> -->
-                                  </div>
-
-                                  <h1 id="user-name" class="username"></h1>
-                                  <label id="change-username"><a href="#" class = "update-profile-links">Change username</a></label>
-                                  <h3 id="tag-line"></h3>
-                                  <label><a href="#" class = "update-profile-links">Add or update your tag line</a></label>
-                              </div>
-                          </div>
-                          <div class="col-md-1 col-sm-0 fav-spots">
-                            <div>
-                            </div>
-                          </div>
-                          <div class="col-md-8 col-sm-6 fav-spots">
-                              <div>
-                                  <h3>Favorite Karaoke Spots</h3>
-                                  <div class="favorites-content"></div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+              <div class="col-md-1 col-sm-0 fav-spots">
+                <div></div>
               </div>
-              <!-- /.row -->
-          </div>
-          <!-- /.container -->
-      </section>
-
-      <!-- Bar Profile -->
-      <section id="services" class="services bg-primary">
-          <div class="container">
-              <div class="row text-center">
-                  <div class="col-lg-12">
-                      <h2>Bar Profile</h2>
-                      <hr class="small">
-                      <div class="row">
-                          <div class="col-md-3 col-sm-6">
-                              <div class="service-item">
-                                  <h4><strong>Col 1</strong></h4>
-                              </div>
-                          </div>
-                          <div class="col-md-3 col-sm-6">
-                              <div class="service-item">
-                                  <h4><strong>Col 2</strong></h4>
-                              </div>
-                          </div>
-                          <div class="col-md-3 col-sm-6">
-                              <div class="service-item">
-                                  <h4><strong>Col 3</strong></h4>
-                              </div>
-                          </div>
-                          <div class="col-md-3 col-sm-6">
-                              <div class="service-item">
-                                  <h4><strong>Col 4</strong></h4>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+              <div class="col-md-8 col-sm-6 fav-spots">
+                <div>
+                    <h3>Favorite Karaoke Spots</h3>
+                    <div class="favorites-content"></div>
+                </div>
               </div>
-          </div>
-      </section>
-
-      <!-- Footer -->
-      <footer>
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-10 col-lg-offset-1 text-center">
-                      <div style='font-size: 1.2em'><strong><a href="https://github.com/olivia-leach">@olivia-leach</a></strong></div>
-                      <div>glyphs by <a href="http://glyphicons.com/">Glyphonics</a><div>
-                      <div>font by <a href="http://glyphicons.com/">font-person</a><div>
-                  </div>
-              </div>
-          </div>
-      </footer>
-
-    </body>
-
-    <!-- Log In Modal -->
-    <div class="modal fade inverse" id="log-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-
-            <h4 class="modal-title">Log in</h4>
-
-          </div>
-          <div class="modal-body">
-            <form id="sign-in">
-              <div class="form-group">
-                <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
-            </form>
-          </div>
-          <div class="form-group">
-            <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#sign-up-modal" class="register-opp">Need to register?</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Register Modal -->
-    <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Create new account</h4>
-          </div>
-          <div class="modal-body">
-            <form id="sign-up">
-              <div class="form-group">
-                <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <input type="password" name="credentials[password_confirmation]" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
-              </div>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
-            </form>
-          </div>
-          <div class="form-group">
-            <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#log-in-modal" class="register-opp">Already have an account?</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sign Out Modal -->
-    <div class="modal fade" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Are you sure you want to sign out?</h4>
-          </div>
-          <div class="modal-body">
-            <form id="sign-out">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-primary" id="btn-logout">Sign Out</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Change Password Modal -->
-    <div class="modal fade" id="change-pw-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Change password</h4>
-          </div>
-          <div class="modal-body">
-            <form id="change-pw">
-              <div class="form-group">
-                <input type="password" name="passwords[old]" class="form-control" id="oldPassword" placeholder="Old Password">
-              </div>
-              <div class="form-group">
-                <input type="password" name="passwords[new]" class="form-control" id="newPassword" placeholder="New Password">
-              </div>
-              <button id="cancelPWChange" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              <button id="submitPWChange" type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Successfully Changed Password Modal -->
-    <div class="modal fade" id="success-pw-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Password Successfully Changed!</h4>
-          </div>
-          <div class="modal-body">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Successfully Registered Modal -->
-    <div class="modal fade" id="success-reg-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Registration Successful!</h4>
-          </div>
-          <div class="modal-body">
-              <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#log-in-modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Incorrect Password -->
-    <div class="modal fade" id="log-in-fail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title invalid" id="myModalLabel">Invalid Password or E-mail Address</h4>
-          </div>
-          <div class="modal-body">
-              <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#log-in-modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Registration Fail Modal -->
-    <div class="modal fade" id="reg-fail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title invalid" id="myModalLabel">Passwords do not match or e-mail already registered</h4>
-          </div>
-          <div class="modal-body">
-              <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#sign-up-modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Profile Pic Modal -->
-    <div class="modal fade" id="profile-pic-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Chose a new icon</h4>
-          </div>
-          <div class="modal-body">
-            <div class="user-icon-wrapper">
-            <ul class="horizontal-list icon-list">
-              <li class='icon-option'>
-                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-              </li>
-              <li class='icon-option'>
-                <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
-              </li>
-              <li class='icon-option'>
-                <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-              </li>
-              <li class='icon-option'>
-                <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
-              </li>
-              <li class='icon-option'>
-                <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
-              </li>
-              <li class='icon-option'>
-                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
-              </li>
-              <li class='icon-option' style="display:none">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-              </li>
-            </ul>
             </div>
-            <form id="new-icon-form">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-primary" data-dismiss="modal" id="btn-new-icon">Submit</button>
-            </form>
           </div>
         </div>
       </div>
+    </section>
+
+    <div class="carousel-content"></div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-lg-offset-1 text-center">
+            <div style='font-size: 1.2em'><strong><a href="https://github.com/olivia-leach">@olivia-leach</a></strong></div>
+            <div>glyphs by <a href="http://glyphicons.com/">Glyphonics</a>
+            // font by <a href="http://glyphicons.com/">font-person</a><div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+
+  <!-- Log In Modal -->
+  <div class="modal fade inverse" id="log-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="modal-title">Log in</h4>
+
+        </div>
+        <div class="modal-body">
+          <form id="sign-in">
+            <div class="form-group">
+              <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
+          </form>
+        </div>
+        <div class="form-group">
+          <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#sign-up-modal" class="register-opp">Need to register?</a>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Create new account</h4>
+        </div>
+        <div class="modal-body">
+          <form id="sign-up">
+            <div class="form-group">
+              <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <input type="password" name="credentials[password_confirmation]" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
+            </div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
+          </form>
+        </div>
+        <div class="form-group">
+          <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#log-in-modal" class="register-opp">Already have an account?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign Out Modal -->
+  <div class="modal fade" id="sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Are you sure you want to sign out?</h4>
+        </div>
+        <div class="modal-body">
+          <form id="sign-out">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-logout">Sign Out</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div class="modal fade" id="change-pw-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Change password</h4>
+        </div>
+        <div class="modal-body">
+          <form id="change-pw">
+            <div class="form-group">
+              <input type="password" name="passwords[old]" class="form-control" id="oldPassword" placeholder="Old Password">
+            </div>
+            <div class="form-group">
+              <input type="password" name="passwords[new]" class="form-control" id="newPassword" placeholder="New Password">
+            </div>
+            <button id="cancelPWChange" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button id="submitPWChange" type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Successfully Changed Password Modal -->
+  <div class="modal fade" id="success-pw-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Password Successfully Changed!</h4>
+        </div>
+        <div class="modal-body">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Successfully Registered Modal -->
+  <div class="modal fade" id="success-reg-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Registration Successful!</h4>
+        </div>
+        <div class="modal-body">
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#log-in-modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Incorrect Password -->
+  <div class="modal fade" id="log-in-fail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title invalid" id="myModalLabel">Invalid Password or E-mail Address</h4>
+        </div>
+        <div class="modal-body">
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#log-in-modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Registration Fail Modal -->
+  <div class="modal fade" id="reg-fail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title invalid" id="myModalLabel">Passwords do not match or e-mail already registered</h4>
+        </div>
+        <div class="modal-body">
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#sign-up-modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Pic Modal -->
+  <div class="modal fade" id="profile-pic-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Chose a new icon</h4>
+        </div>
+        <div class="modal-body">
+          <div class="user-icon-wrapper">
+          <ul class="horizontal-list icon-list">
+            <li class='icon-option'>
+              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+            </li>
+            <li class='icon-option'>
+              <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+            </li>
+            <li class='icon-option'>
+              <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+            </li>
+            <li class='icon-option'>
+              <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+            </li>
+            <li class='icon-option'>
+              <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+            </li>
+            <li class='icon-option'>
+              <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+            </li>
+            <li class='icon-option' style="display:none">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            </li>
+          </ul>
+          </div>
+          <form id="new-icon-form">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" id="btn-new-icon">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </html>

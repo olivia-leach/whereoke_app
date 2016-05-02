@@ -1,0 +1,41 @@
+<div id="bars-carousel" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators" id="carousel-indicators">
+    {{#each data}}
+        <li data-target="#bars-carousel" data-slide-to="{{this.id}}"></li>
+    {{/each}}
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox" id="carousel-inner">
+    {{#each data}}
+      <div class="item">
+        <img src="http://www.uppanorama.com/wp-content/uploads/2013/06/NorthernLightsHoughton.jpg">
+        <div class="carousel-caption">
+          <h2>{{this.name}}</h2>
+          <h4>{{this.address}}, {{this.city}}, {{this.state}}</h4>
+          <h5>{{this.nights}}</h5>
+          {{#if this.reviews.rating}}
+            <h6>Average user rating: {{this.reviews.length}}</h6>
+          {{else}}
+            <h6>Bar not yet rated by any users</h6>
+          {{/if}}
+          <a href="#" id="write-a-review">Write a Review</a> / <a href="#" id="add-to-favorites">Add to Favorites</a>
+          <br>
+          <br>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#bars-carousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#bars-carousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+
+
+</div>

@@ -35,6 +35,20 @@ const addHandlers = () => {
     appApi.updateProfile(appUi.updateProfileSuccess, appUi.failure, data);
   });
 
+  $('#edit-profile').on('click', function(e) {
+    e.preventDefault();
+    $('.update-profile-links').css("visibility", "visible");
+    $(this).hide();
+    $('#done-editing-profile').show();
+  });
+
+  $('#done-editing-profile').on('click', function(e) {
+    e.preventDefault();
+    $('.update-profile-links').css("visibility", "hidden");
+    $(this).hide();
+    $('#edit-profile').show();
+  });
+
   // $('.glyphicon-heart').click (function() {
   //   console.log('five hearts');
   //   // $(this).attr("color: pink");

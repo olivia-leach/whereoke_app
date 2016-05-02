@@ -9,6 +9,14 @@ const signOutSuccess = (data) => {
   app.user = data;
   console.log("logged out");
   console.log(app);
+  $('#log-in-menu-button').show();
+  $('#sign-up-menu-button').show();
+  $('#logged-out-header').show();
+  $('#logged-in-header').hide();
+  $('#user-profile').hide();
+  $('#bar-profile').hide();
+  $('#sign-out-menu-button').hide();
+  $('#user-profile-menu-button').hide();
 };
 
 const signInSuccess = (data) => {
@@ -17,7 +25,14 @@ const signInSuccess = (data) => {
   console.log(app.user);
   console.log(data.user.email + " logged in");
   appApi.getProfile(appUi.getProfileSuccess, appUi.failure);
-  // google.mapGeocoder();
+  $('#log-in-menu-button').hide();
+  $('#sign-up-menu-button').hide();
+  $('#logged-out-header').hide();
+  $('#logged-in-header').show();
+  $('#user-profile').show();
+  $('#bar-profile').show();
+  $('#sign-out-menu-button').show();
+  $('#user-profile-menu-button').show();
 };
 
 // const changePWSuccess = () => {

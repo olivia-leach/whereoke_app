@@ -1,11 +1,21 @@
-.header {
-    display: table;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: url(../img/microphone.jpg) no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+.header-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(45, 15, 101, 0.3),
+    rgba(45, 15, 101, 0.3)
+    ),
+    url(../img/microphone.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+  filter: blur(2px);
+  /* Browser Specific*/
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
 }

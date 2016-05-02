@@ -45,9 +45,21 @@ const loadFavorites = () => {
   }));
 };
 
+const loadBarCarousel = () => {
+  console.log('loading bar carousel...');
+  let data = app.barsByDay;
+  console.log(data);
+  let listingTemplate = require('../templates/bar-carousel.handlebars');
+  $('.carousel-content').children().remove();
+  $('.carousel-content').append(listingTemplate({
+    data
+  }));
+};
+
 module.exports = {
   userProfile,
   loadFavorites,
   filterBarsOnDay,
-  today
+  today,
+  loadBarCarousel
 };

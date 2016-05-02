@@ -1,13 +1,15 @@
 .map-area {
-    padding: 50px 0;
+    // padding: 20px 0;
+    height: 10%;
 }
 
 .map {
-    height: 500px;
+    // height: 500px;
+    height: 60%;
 }
 
 @media(max-width:768px) {
     .map {
-        height: 75%;
+        height: 45%;
     }
 }

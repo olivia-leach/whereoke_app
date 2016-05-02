@@ -22,6 +22,7 @@ const mapGeocoder = function() {
 
   geocoder = new google.maps.Geocoder();
   let latlng = new google.maps.LatLng(42.3601, -71.0589);
+  // let alllatlng = [];
   let myOptions = {
     zoom: 12,
     center: latlng,
@@ -34,9 +35,10 @@ const mapGeocoder = function() {
   if (geocoder) {
     for (let i = 0; i < addresses.length; i++) {
     geocoder.geocode( { 'address': addresses[i]}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        if (status !== google.maps.GeocoderStatus.ZERO_RESULTS) {
         map.setCenter(results[0].geometry.location);
+        // alllatlng.push(results[0].geometry.location);
 
           let infowindow = new google.maps.InfoWindow(
               { content: '<b>'+names[i]+'</b><br>'+cityStates[i],
@@ -61,6 +63,16 @@ const mapGeocoder = function() {
     });
   }
 }
+// var latlngbounds = new GLatLngBounds( );
+// let latlngbounds = new google.maps.LatLngBounds();
+// for (let i = 0; i < alllatlng.length; i++) {
+//   latlngbounds.extent(alllatlng[i]);
+// }
+// map.setCenter( latlngbounds.getCenter( ), map.getBoundsZoomLevel( latlngbounds ) );
+// map.setCenter(latlngbounds.getCenter());
+// map.zoom(latlngbounds);
+// map.fitBounds(latlngbounds);
+// map.fitBounds(results[0].geometry.viewport);
 };
 
 module.exports = {
