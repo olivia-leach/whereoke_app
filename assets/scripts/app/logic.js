@@ -82,10 +82,30 @@ const loadBarCarousel = () => {
   });
 };
 
+const updateBarsSuccess = (data) => {
+  console.log(data);
+  console.log('bars updated');
+  app.bars = data.bars;
+  filterBarsOnDay();
+  loadBarCarousel();
+  $('#carousel-inner').children().first().toggleClass('active');
+  $('#carousel-indicators').children().first().toggleClass('active');
+}
+
+const updateBarFailure = (data) => {
+  console.error(error);
+  console.log('Error updating bars');
+};
+
 const newReviewSuccess = (data) => {
   console.log(data);
   console.log('New review added');
-  
+  appApi.getBars(updateBarsSuccess, updateBarFailure);
+};
+
+const newReviewFailure = (data) => {
+  console.error(error);
+  console.log('Error submitting review');
 };
 
 const removeFavSuccess = () => {
