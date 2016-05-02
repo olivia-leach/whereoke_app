@@ -15,11 +15,11 @@
         <div class="carousel-caption">
           <h2>{{this.name}}</h2>
           <h4>{{this.address}}, {{this.city}}, {{this.state}}</h4>
-          <h5>{{this.nights}}</h5>
+          <h6>{{this.nights}}</h6>
           {{#if this.avgRating}}
-            <h6>Average user rating: {{this.avgRating}}</h6>
+            <h5>Average user rating: <span class='rating-small'>{{{this.avgRatingHearts}}} </span></h5>
           {{else}}
-            <h6>Bar not yet rated by any users</h6>
+            <h5>Bar not yet rated by any users</h5>
           {{/if}}
           <a href="#" id="write-a-review" class="review-test" data-toggle="modal" data-target="#write-review-modal-{{this.id}}">Write a Review</a> / <a href="#" data-toggle="modal" data-target="#add-favorites-modal-{{this.id}}">Add to Favorites</a>
           <br>

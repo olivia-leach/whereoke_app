@@ -64,6 +64,7 @@ const loadBarCarousel = () => {
   console.log('loading bar carousel...');
   let data = app.barsByDay;
   console.log(data);
+
   let listingTemplate = require('../templates/bar-carousel.handlebars');
   $('.carousel-content').children().remove();
   $('.carousel-content').append(listingTemplate({
@@ -86,6 +87,7 @@ const updateBarsSuccess = (data) => {
   console.log(data);
   console.log('bars updated');
   app.bars = data.bars;
+  calcAvgRating();
   filterBarsOnDay();
   loadBarCarousel();
   $('#carousel-inner').children().first().toggleClass('active');
@@ -170,6 +172,24 @@ const removeBarFavorite = () => {
   });
 };
 
+const calcAvgRating = () => {
+  for (let i = 0; i < app.bars.length; i++) {
+    let bar = app.bars[i];
+    let sum = 0;
+    bar.avgRatingHearts = '';
+    if (bar.reviews.length > 0) {
+      for (let i = 0; i < bar.reviews.length; i++) {
+        sum += bar.reviews[i].rating;
+      }
+      bar.avgRating = Math.round(sum / bar.reviews.length);
+      for (let i = 0; i < bar.avgRating; i++) {
+        bar.avgRatingHearts += "<span class='glyphicon glyphicon-heart'></span>";
+      }
+
+    }
+  }
+};
+
 module.exports = {
   userProfile,
   loadFavorites,
@@ -177,5 +197,6 @@ module.exports = {
   today,
   loadBarCarousel,
   addBarFavorite,
-  removeBarFavorite
+  removeBarFavorite,
+  calcAvgRating
 };

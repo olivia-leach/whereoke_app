@@ -35,8 +35,9 @@ const signInSuccess = (data) => {
   $('#user-profile-menu-button').show();
 };
 
-const changePWSuccess = () => {
+const changePWSuccess = (data) => {
   console.log("password successfully changed");
+  appApi.getProfile(appUi.getProfileSuccess, appUi.failure);
   $("#change-pw-modal").modal('hide');
   $(".modal-backdrop").hide();
   $("#success-pw-modal").modal('show');
