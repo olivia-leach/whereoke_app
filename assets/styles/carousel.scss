@@ -1,6 +1,6 @@
 .carousel-inner img {
-  width: 45%;
-  // height: 10%;
+  // width: 45%;
+  // height: 100%;
   margin: 0 auto;
 }
 
@@ -9,5 +9,7 @@
 }
 
 .carousel-content {
-  // height: 50%;
+  width: 50%;
+  height: 60%;
+  float: left;
 }

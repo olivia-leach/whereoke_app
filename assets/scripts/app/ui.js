@@ -32,13 +32,14 @@ const getBarsSuccess = (data) => {
   console.log(app.bars);
   logic.filterBarsOnDay();
   logic.loadBarCarousel();
+  logic.addBarFavorite();
   $('#carousel-inner').children().first().toggleClass('active');
   $('#carousel-indicators').children().first().toggleClass('active');
 };
 
 const success = (data) => {
   console.log(data);
-  console.log('profile created');
+  console.log('success');
 };
 
 const failure = (error) => {

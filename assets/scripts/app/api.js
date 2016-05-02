@@ -44,26 +44,14 @@ const getBars = (success, failure) => {
   }).done(success).fail(failure);
 };
 
-const create = (success, failure) => {
-  console.log("Create new game request queued");
+const newFavorite = (success, failure, data) => {
+  console.log("Add new favorite request queued");
   $.ajax({
     method : 'POST',
-    url : app.api + '/games',
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    },
-  }).done(success).fail(failure);
-};
-
-const update = (success, failure, data) => {
-  console.log("Update game request queued");
-  $.ajax({
-    method : 'PATCH',
-    url : app.api + '/games/' + app.game.id,
+    url : app.api + '/favorites',
     processData : false,
     data,
     headers : {
-      Authorization : "Token token=" + app.user.token,
       "content-type": "application/json",
     },
   }).done(success).fail(failure);
@@ -72,8 +60,7 @@ const update = (success, failure, data) => {
 module.exports = {
   getProfile,
   getBars,
-  create,
-  update,
   createProfile,
-  updateProfile
+  updateProfile,
+  newFavorite
 };

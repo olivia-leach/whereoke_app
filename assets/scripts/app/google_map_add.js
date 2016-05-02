@@ -37,7 +37,7 @@ const mapGeocoder = function() {
     geocoder.geocode( { 'address': addresses[i]}, function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         if (status !== google.maps.GeocoderStatus.ZERO_RESULTS) {
-        map.setCenter(results[0].geometry.location);
+        // map.setCenter(results[0].geometry.location);
         // alllatlng.push(results[0].geometry.location);
 
           let infowindow = new google.maps.InfoWindow(

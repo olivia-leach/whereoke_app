@@ -2,6 +2,8 @@
 
 const app = require('../app-data.js');
 const google = require('./google_map_add.js');
+const appApi = require('./api.js');
+const appUi = require('./ui.js');
 
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const today = daysOfWeek[(new Date()).getDay()];
@@ -56,10 +58,33 @@ const loadBarCarousel = () => {
   }));
 };
 
+const newFavSuccess = (data) => {
+  console.log(data);
+  console.log('New favorite added');
+  app.profile.fav_bars.unshift(app.bars[data.favorite.bar_id - 1]);
+  loadFavorites();
+};
+
+const failure = (error) => {
+  console.error("This bar is already in your favorites.");
+};
+
+const addBarFavorite = () => {
+  $('.add-favorite').on('submit', function (event) {
+    event.preventDefault();
+    let data = getFormFields(this);
+    let dataJSON = '{ "favorite": { "bar_id": ' + data.favorite.bar_id + ', "profile_id":' + app.profile.id + ' } }';
+    appApi.newFavorite(newFavSuccess, failure, dataJSON);
+    $(".add-favorites-modal").modal('hide');
+    $(".modal-backdrop").hide();
+  });
+};
+
 module.exports = {
   userProfile,
   loadFavorites,
   filterBarsOnDay,
   today,
-  loadBarCarousel
+  loadBarCarousel,
+  addBarFavorite
 };

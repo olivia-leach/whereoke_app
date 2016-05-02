@@ -49,6 +49,16 @@ const addHandlers = () => {
     $('#edit-profile').show();
   });
 
+  $('#add-favorite').on('submit', function (event) {
+    // let data = getFormFields(this);
+    event.preventDefault();
+    console.log('button clicked');
+    // console.log(data);
+    // authApi.signUp(authUi.registerSuccess, authUi.regFail, data);
+    // $("#sign-up-modal").modal('hide');
+    // $(".modal-backdrop").hide();
+  });
+
   // $('.glyphicon-heart').click (function() {
   //   console.log('five hearts');
   //   // $(this).attr("color: pink");

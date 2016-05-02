@@ -11,8 +11,7 @@ const signOutSuccess = (data) => {
   console.log(app);
   $('#log-in-menu-button').show();
   $('#sign-up-menu-button').show();
-  $('#logged-out-header').show();
-  $('#logged-in-header').hide();
+  $('.logged-out-link').show();
   $('#user-profile').hide();
   $('#bar-profile').hide();
   $('#sign-out-menu-button').hide();
@@ -27,8 +26,7 @@ const signInSuccess = (data) => {
   appApi.getProfile(appUi.getProfileSuccess, appUi.failure);
   $('#log-in-menu-button').hide();
   $('#sign-up-menu-button').hide();
-  $('#logged-out-header').hide();
-  $('#logged-in-header').show();
+  $('.logged-out-link').hide();
   $('#user-profile').show();
   $('#bar-profile').show();
   $('#sign-out-menu-button').show();
