@@ -39,32 +39,15 @@ const addHandlers = () => {
     e.preventDefault();
     $('.update-profile-links').css("visibility", "visible");
     $(this).hide();
-    $('#done-editing-profile').show();
+    $('#done-edit-profile').show();
   });
 
-  $('#done-editing-profile').on('click', function(e) {
+  $('#done-edit-profile').on('click', function(e) {
     e.preventDefault();
     $('.update-profile-links').css("visibility", "hidden");
     $(this).hide();
     $('#edit-profile').show();
   });
-
-  $('#add-favorite').on('submit', function (event) {
-    // let data = getFormFields(this);
-    event.preventDefault();
-    console.log('button clicked');
-    // console.log(data);
-    // authApi.signUp(authUi.registerSuccess, authUi.regFail, data);
-    // $("#sign-up-modal").modal('hide');
-    // $(".modal-backdrop").hide();
-  });
-
-  // $('.glyphicon-heart').click (function() {
-  //   console.log('five hearts');
-  //   // $(this).attr("color: pink");
-  // });
-
-
 
 };
 

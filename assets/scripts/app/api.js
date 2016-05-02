@@ -68,11 +68,25 @@ const removeFavorite = (success, failure, favID) => {
   }).done(success).fail(failure);
 };
 
+const newReview = (success, failure, data) => {
+  console.log("Add new review request queued");
+  $.ajax({
+    method : 'POST',
+    url : app.api + '/reviews',
+    processData : false,
+    data,
+    headers : {
+      "content-type": "application/json",
+    },
+  }).done(success).fail(failure);
+};
+
 module.exports = {
   getProfile,
   getBars,
   createProfile,
   updateProfile,
   newFavorite,
-  removeFavorite
+  removeFavorite,
+  newReview
 };

@@ -21,6 +21,14 @@ body {
     color: $off-white;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+footer {
+  background-color: $dark-purple;
+}
+
 body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }

@@ -48,20 +48,20 @@
         <h4 class="modal-title" id="myModalLabel">Leave a Review for {{this.name}}</h4>
       </div>
       <div class="modal-body">
-        <form id="new-review-{{this.id}}">
+        <form id="new-review-{{this.id}}" class="add-review">
           <div class="form-group">
-            <textarea name="revew[bar_id]" class="form-control">{{this.id}}</textarea>
+            <textarea name="review[bar_id]" class="form-control">{{this.id}}</textarea>
           </div>
           <div class="form-group">
             <textarea name="review[comment]" class="form-control" id="review-comment" rows="3" placeholder="Write a comment."></textarea>
           </div>
           <div class="form-group">
             <select class="form-control" name=review[rating] data-show-icon="true">
-              <option>1 Heart</option>
-              <option>2 Hearts</option>
-              <option>3 Hearts</option>
-              <option>4 Hearts</option>
-              <option>5 Hearts</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
             </select>
           </div>
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

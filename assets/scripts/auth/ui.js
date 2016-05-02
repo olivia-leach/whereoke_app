@@ -11,6 +11,7 @@ const signOutSuccess = (data) => {
   console.log(app);
   $('#log-in-menu-button').show();
   $('#sign-up-menu-button').show();
+  $('#change-pw-menu-button').hide();
   $('.logged-out-link').show();
   $('#user-profile').hide();
   $('#bar-profile').hide();
@@ -27,18 +28,25 @@ const signInSuccess = (data) => {
   $('#log-in-menu-button').hide();
   $('#sign-up-menu-button').hide();
   $('.logged-out-link').hide();
+  $('#change-pw-menu-button').show();
   $('#user-profile').show();
   $('#bar-profile').show();
   $('#sign-out-menu-button').show();
   $('#user-profile-menu-button').show();
 };
 
-// const changePWSuccess = () => {
-//   console.log("password successfully changed");
-//   $("#change-pw-modal").modal('hide');
-//   $(".modal-backdrop").hide();
-//   $("#success-pw-modal").modal('show');
-// };
+const changePWSuccess = () => {
+  console.log("password successfully changed");
+  $("#change-pw-modal").modal('hide');
+  $(".modal-backdrop").hide();
+  $("#success-pw-modal").modal('show');
+};
+
+const changePWFail = (error) => {
+  console.error(error);
+  $("#change-pw-modal").modal('hide');
+  $("#pw-change-fail-modal").modal('show');
+};
 
 const registerSuccess = (data) => {
   console.log("registration successful");
@@ -75,8 +83,9 @@ module.exports = {
   success,
   signInSuccess,
   signOutSuccess,
-  // changePWSuccess,
+  changePWSuccess,
   registerSuccess,
   signInFail,
-  regFail
+  regFail,
+  changePWFail
 };

@@ -69,6 +69,23 @@ const loadBarCarousel = () => {
   $('.carousel-content').append(listingTemplate({
     data
   }));
+  $('.add-review').on('submit', function (event) {
+    event.preventDefault();
+    let data = getFormFields(this);
+    console.log(data);
+    let dataJSON =
+    '{ "review": { "bar_id": ' + data.review.bar_id + ', "profile_id":' + app.profile.id + ' , "comment": "' + data.review.comment + '", "rating": ' + parseInt(data.review.rating) + '} }';
+    console.log(dataJSON);
+    appApi.newReview(newReviewSuccess, newReviewFailure, dataJSON);
+    $(".write-review-modal").modal('hide');
+    $(".modal-backdrop").hide();
+  });
+};
+
+const newReviewSuccess = (data) => {
+  console.log(data);
+  console.log('New review added');
+  
 };
 
 const removeFavSuccess = () => {

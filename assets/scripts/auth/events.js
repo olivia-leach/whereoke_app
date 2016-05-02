@@ -26,12 +26,12 @@ const addHandlers = () => {
     $("#sign-out-modal").modal('hide');
     $(".modal-backdrop").hide();
   });
-  // $('#change-pw').on('submit', function(event) {
-  //   event.preventDefault();
-  //   let data = getFormFields(this);
-  //   console.log("change password clicked");
-  //   authApi.changePW(authUi.changePWSuccess, authUi.failure, data);
-  // });
+  $('#change-pw').on('submit', function(event) {
+    event.preventDefault();
+    let data = getFormFields(this);
+    console.log("change password clicked");
+    authApi.changePW(authUi.changePWSuccess, authUi.changePWFail, data);
+  });
 };
 
 module.exports = {

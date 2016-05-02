@@ -42,6 +42,9 @@
           <li id="user-profile-menu-button" hidden>
               <a href="#user-profile" onclick = $("#menu-close").click();>User Profile</a>
           </li>
+          <li id="change-pw-menu-button" hidden>
+              <a href="#" data-toggle="modal" data-target="#change-pw-modal" onclick = $("#menu-close").click();>Change Password</a>
+          </li>
           <li id="sign-out-menu-button" hidden>
               <a href="#" data-toggle="modal" data-target="#sign-out-modal" onclick = $("#menu-close").click();>Log Out</a>
           </li>
@@ -100,44 +103,31 @@
     <section id="user-profile" class="user-profile" hidden>
       <div class="container">
         <div class="row">
-          <div class="col-lg-12 text-left">
-              <!-- <hr class="small"> -->
-            <div class="row">
-              <div class="col-md-3 col-sm-6 text-left fav-spots">
-                <div class="service-item">
-                  <div id="user-image-holder" class="user-image-holder">
-                    <div id="user-icon">
-                      <span class="glyphicon glyphicon-user user-image" aria-hidden="true"></span>
-                    </div>
-                    <!-- <div class="mouseover-holder">
-                      <div class="mouseover-background">-->
-                    <label class="change-icon-link">
-                      <a href="#" class = "update-profile-links" data-toggle="modal" data-target="#profile-pic-modal" id="change-profile-setting" style="visibility: hidden">
-                        Change your personal icon
-                      </a>
-                    </label>
-                    <!-- </div>
-                    </div> -->
-                  </div>
-
-                  <h1 id="user-name" class="username"></h1>
-                  <label id="change-username"><a href="#" class = "update-profile-links" id="change-profile-setting" style="visibility: hidden">Change username</a></label>
-                  <h3 id="tag-line"></h3>
-                  <label><a href="#" class = "update-profile-links" id="change-profile-setting" style="visibility: hidden">Add or update your tag line</a></label>
-                  <br>
-                  <label style="font-size: 1.5em"><a href="#" class = "update-profile" id="edit-profile">Edit your profile</a></label>
-                  <label style="font-size: 1.5em"><a href="#" class = "update-profile" id="done-editing-profile" hidden>Done editing</a></label>
+          <div class="col-md-3 col-sm-6 text-left">
+            <div class="profile-info">
+              <h1 id="user-name" class="username">user@user.com</h1>
+              <label id="change-username"><a href="#" class = "update-profile-links" id="change-profile-setting" style="visibility: hidden">Change username</a></label>
+              <div id="user-image-holder" class="user-image-holder">
+                <div id="user-icon">
+                  <span class="glyphicon glyphicon-user user-image" aria-hidden="true"></span>
                 </div>
+                <label class="change-icon-link">
+                  <h6>
+                    <a href="#" data-toggle="modal" data-target="#profile-pic-modal" id="change-profile-setting">
+                      Change your personal icon
+                    </a>
+                  </h6>
+                </label>
               </div>
-              <div class="col-md-1 col-sm-0 fav-spots">
-                <div></div>
-              </div>
-              <div class="col-md-8 col-sm-6 fav-spots">
-                <div>
-                    <h3>Favorite Karaoke Spots</h3>
-                    <div class="favorites-content"></div>
-                </div>
-              </div>
+            </div>
+          </div>
+          <div class="col-md-1 col-sm-0">
+            <div class="divider"></div>
+          </div>
+          <div class="col-md-8 col-sm-6 fav-spots">
+            <div>
+                <h3 class="favs-title">Favorite Karaoke Spots</h3>
+                <div class="favorites-content"></div>
             </div>
           </div>
         </div>
@@ -147,11 +137,15 @@
     <!-- Footer -->
     <footer>
       <div class="container">
-        <div class="row">
-          <div class="col-lg-10 col-lg-offset-1 text-center">
-            <div style='font-size: 1.2em' class='author'><strong><a href="https://github.com/olivia-leach">@olivia-leach</a></strong></div>
-            <div>glyphs by <a href="http://glyphicons.com/">Glyphonics</a>
-            // font by <a href="http://glyphicons.com/">font-person</a><div>
+        <div class="col-lg-10 col-lg-offset-1 text-center">
+          <div style='font-size: 1.2em' class='author'>
+            <strong>
+              <a href="https://github.com/olivia-leach">@olivia-leach</a>
+            </strong>
+          </div>
+          <div>
+            glyphs by <a href="http://glyphicons.com/">Glyphonics</a>
+            // font by <a href="http://glyphicons.com/">font-person</a>
           </div>
         </div>
       </div>
@@ -314,6 +308,21 @@
         </div>
         <div class="modal-body">
             <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#sign-up-modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Password change fail modal -->
+  <div class="modal fade" id="pw-change-fail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title invalid" id="myModalLabel">Incorrect Old Password</h4>
+        </div>
+        <div class="modal-body">
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#change-pw-modal">Close</button>
         </div>
       </div>
     </div>

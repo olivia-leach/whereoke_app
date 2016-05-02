@@ -3,36 +3,19 @@
   justify-content: center;
 }
 
-#user-icon {
-  width: 150px;
-  color: $off-white;
-}
-
 .user-image {
-  font-size: 8em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  width: 150px;
-  height: 150px;
+  font-size: 6em;
+  // width: 150px;
+  // height: 150px;
   margin-bottom: -10px;
+  margin-top: -20px;
   z-index: -1;
 }
 
 .user-profile {
   clear: both;
   width: 100%;
-  height: 30%;
-  border: 1px solid red;
   color: $off-white;
-}
-
-.user-image-holder {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 150px;
 }
 
 .horizontal-list li {
@@ -40,7 +23,6 @@
   font-size: 5.5em;
   padding: 0 15px;
   text-decoration: none;
-  // color: $off-white;
   cursor: pointer;
 
   &:hover {
@@ -65,21 +47,10 @@
   color: $off-white;
 }
 
-.mouseover-background {
-  background-color: $trans-black;
-  height: 150px;
-  width: 150px;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
 .update-profile-links {
   // color: $font-color;
   font-weight: lighter;
-  font-style: italic;
-  font-size: .8em;
+  font-size: 1em;
   z-index: 1000;
 }
 
@@ -100,8 +71,6 @@
 }
 
 .rating {
-  // position: absolute;
-  // right: 250px;
   font-size: 1.5em;
   color: $pink;
 }
@@ -113,4 +82,15 @@
 .rating-delete-group {
   position: absolute;
   left: 350px;
+}
+
+.favs-title {
+  padding-top: 10px;
+}
+
+.divider {
+  height: 100px;
+  width: 50px;
+  margin-top: 50px;
+  border-right: 1px solid $light-grey;
 }
