@@ -3,13 +3,14 @@
   justify-content: center;
 }
 
+#user-icon {
+  border: 1pz solid red;
+}
+
 .user-image {
   font-size: 6em;
-  // width: 150px;
-  // height: 150px;
   margin-bottom: -10px;
   margin-top: -20px;
-  z-index: -1;
 }
 
 .user-profile {
