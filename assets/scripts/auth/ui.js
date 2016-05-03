@@ -24,8 +24,8 @@ const signOutSuccess = (data) => {
   $('.map').animate({
         height: '+=20%'
     }, 1000);
-  $('.carousel-content ').animate({
-        height: '+=20%'
+  $('.carousel-content').animate({
+        'height': '+=20%'
     }, 1000);
 };
 
@@ -47,8 +47,8 @@ const signInSuccess = (data) => {
   $('.map').animate({
         height: '-=20%'
     }, 1000);
-  $('.carousel-content ').animate({
-        height: '-=20%'
+  $('.carousel-content').animate({
+        'height': '-=20%'
     }, 1000);
 };
 

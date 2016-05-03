@@ -11,33 +11,33 @@
   <div class="carousel-inner" role="listbox" id="carousel-inner">
     {{#each data}}
       <div class="item">
-        {{!-- <img src="http://www.uppanorama.com/wp-content/uploads/2013/06/NorthernLightsHoughton.jpg"> --}}
-        {{!-- <img src="https://maps.googleapis.com/maps/api/streetview?size=640x583&location=46.414382,10.013988&heading=151.78&pitch=14&key=AIzaSyDyIX1_gmBhMrXFfGI_0bDXRQibEGqW_B0"> --}}
-        <img src="https://maps.googleapis.com/maps/api/streetview?size=640x583&location={{this.address}},{{this.city}},{{this.state}}&heading=100&scale=2&pitch=5&key=AIzaSyDyIX1_gmBhMrXFfGI_0bDXRQibEGqW_B0">
+        <div class="overlay"></div>
+        <img class="street-view-image street-view-image-logged-out clip" src="https://maps.googleapis.com/maps/api/streetview?size=640x583&location={{this.address}},{{this.city}},{{this.state}}&scale=2&pitch=5&key=AIzaSyDyIX1_gmBhMrXFfGI_0bDXRQibEGqW_B0">
+        <div class="carousel-caption-container">
         <div class="carousel-caption">
-          <h2>{{this.name}}</h2>
+          <h1>{{this.name}}</h1>
           <h4>{{this.address}}, {{this.city}}, {{this.state}}</h4>
-          <h6>{{this.nights}}</h6>
           {{#if this.avgRating}}
-            <h5>Average user rating: <span class='rating-small'>{{{this.avgRatingHearts}}} </span></h5>
+            <h4>Average user rating: <span class='rating-small'>{{{this.avgRatingHearts}}} </span></h4>
           {{else}}
-            <h5>Bar not yet rated by any users</h5>
+            <h4>Bar not yet rated by any users</h4>
           {{/if}}
 
           {{#if this.yourRating}}
-            <h5 class="logged-in-option" hidden>
+            <h4 class="logged-in-option" hidden>
               Your rating: <span class='rating-small'>{{{this.yourRatingHearts}}} </span>
-            </h5>
+            </h4>
           {{else}}
-            <h5 class="logged-in-option" hidden>
+            <h4 class="logged-in-option" hidden>
               <a href="#" id="write-a-review" class="logged-in-option" data-toggle="modal" data-target="#write-review-modal-{{this.id}}">Write a Review</a>
-            </h5>
+            </h4>
           {{/if}}
 
-          <h5 class="logged-in-option" hidden>
+          <h4 class="logged-in-option" hidden>
             <a href="#" data-toggle="modal" data-target="#add-favorites-modal-{{this.id}}">Add to Favorites</a>
-          </h5>
+          </h4>
         </div>
+      </div>
       </div>
     {{/each}}
   </div>
