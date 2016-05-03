@@ -12,4 +12,5 @@ $(() => {
   authEvents.addHandlers();
   appApi.getBars(appUi.getBarsSuccess, appUi.failure);
   $('#day-of-week').text(logic.today);
+  $('#today').text(logic.today);
 });

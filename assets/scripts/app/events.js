@@ -54,6 +54,7 @@ const addHandlers = () => {
     e.preventDefault();
     let altDay = $(this).text();
     $('#day-of-week').text(altDay);
+    $('#today').text(altDay);
     logic.selectAltDay(altDay);
     logic.reloadBarCarousel();
   });

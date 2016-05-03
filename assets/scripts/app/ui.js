@@ -25,6 +25,9 @@ const actionsOnLogOut = () => {
   $('.carousel-content').animate({
         'height': '+=20%'
     }, 1000);
+  $('.flag').animate({
+    top: '-=35%'
+  }, 1000);
 };
 
 const actionsOnLogIn = () => {
@@ -43,6 +46,9 @@ const actionsOnLogIn = () => {
   $('.carousel-content').animate({
         height: '-=20%'
     }, 1000);
+  $('.flag').animate({
+    top: '+=35%'
+  }, 1000);
 };
 
 const createProfileSuccess = (data) => {

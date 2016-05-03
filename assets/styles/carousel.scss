@@ -48,3 +48,15 @@
 .item h4 {
   margin: 15px 0;
 }
+
+.flag {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  // color: $alt-font-color;
+  color: black;
+  // background-color: #FE7569;
+  background-color: rgba(235, 255, 70, 0.9);
+  // opacity: 0.5;
+  padding: 10px 20px;
+}
