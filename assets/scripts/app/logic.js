@@ -149,7 +149,7 @@ const removeFavSuccess = () => {
   $('#remove-fav-' + app.removedBar).hide();
   $('#add-fav-' + app.removedBar).show();
   console.log('favorite removed');
-  // appApi.getProfile(getProfileSuccess, getProfilefailure);
+  // appApi.getProfile(updateProfileSuccess, getProfilefailure);
   for (let i = 0; i < app.profile.fav_bars.length; i++) {
     if (app.profile.fav_bars[i].id == app.removedBar) {
       app.profile.fav_bars.splice(i, 1);
@@ -157,6 +157,20 @@ const removeFavSuccess = () => {
   }
   console.log('reloading favorites...');
   let data = app.profile.fav_bars;
+
+  for (let i = 0; i < data.length; i++) {
+    let bar = data[i];
+    bar.yourRatingHearts = '';
+    bar.yourRating = app.bars[app.profile.fav_bars[i].id - 1].yourRating;
+    for (let i = 0; i < bar.yourRating; i++) {
+      bar.yourRatingHearts += "<span class='glyphicon glyphicon-heart'></span>";
+    }
+    for (let i = 0; i < 5 - bar.yourRating; i++) {
+      bar.yourRatingHearts += "<span class='grey-heart'><span class='glyphicon glyphicon-heart'></span></span>";
+    }
+  }
+
+  // console.log(fav_bars);
   let listingTemplate = require('../templates/just-favs.handlebars');
   $('.list-of-favs').children().remove();
   $('.list-of-favs').append(listingTemplate({
@@ -171,10 +185,18 @@ const removeFavfailure = (error) => {
 const newFavSuccess = (data) => {
   console.log(data);
   console.log('New favorite added');
+  appApi.getProfile(updateProfileSuccess, getProfilefailure);
+  $('#remove-fav-' + app.addedBar).show();
+  $('#add-fav-' + app.addedBar).hide();
   app.profile.favorites.unshift(data.favorite);
   console.log(app.profile.favorites);
   app.profile.fav_bars.unshift(app.bars[data.favorite.bar_id - 1]);
   loadFavorites();
+};
+
+const updateProfileSuccess = (data) => {
+  console.log(data);
+  app.profile = data.profile;
 };
 
 const newFavfailure = (error) => {
@@ -186,6 +208,7 @@ const addBarFavorite = () => {
   $('.add-favorite').on('submit', function (event) {
     event.preventDefault();
     let data = getFormFields(this);
+    app.addedBar = data.favorite.bar_id;
     let dataJSON = '{ "favorite": { "bar_id": ' + data.favorite.bar_id + ', "profile_id":' + app.profile.id + ' } }';
     appApi.newFavorite(newFavSuccess, newFavfailure, dataJSON);
     $(".add-favorites-modal").modal('hide');
