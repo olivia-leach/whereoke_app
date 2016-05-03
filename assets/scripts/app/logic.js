@@ -18,7 +18,7 @@ const filterBarsOnDay = () => {
   }
   app.barsByDay = barsToday;
   console.log(app.barsByDay);
-  // google.mapGeocoder();
+  google.mapGeocoder();
 };
 
 const userProfile = () => {
