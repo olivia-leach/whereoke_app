@@ -9,16 +9,16 @@ let geocoder;
 const mapGeocoder = function() {
   let bars = app.barsByDay;
   // console.log(bars);
-  let addresses = [];
+  app.addresses = [];
   let names = [];
   let cityStates = [];
   for (let i = 0; i < bars.length; i++) {
-    addresses.push(bars[i].address + ', ' + bars[i].city + ', ' + bars[i].state);
+    app.addresses.push(bars[i].address + ', ' + bars[i].city + ', ' + bars[i].state);
     names.push(bars[i].name);
     cityStates.push(bars[i].city + ', ' + bars[i].state);
   }
 
-  console.log(addresses);
+  console.log(app.addresses);
   let infowindow = new google.maps.InfoWindow();
 
   geocoder = new google.maps.Geocoder();
@@ -32,8 +32,8 @@ const mapGeocoder = function() {
   };
   map = new google.maps.Map(document.getElementById("map"), myOptions);
   if (geocoder) {
-    for (let i = 0; i < addresses.length; i++) {
-    geocoder.geocode( { 'address': addresses[i]}, function(results, status) {
+    for (let i = 0; i < app.addresses.length; i++) {
+    geocoder.geocode( { 'address': app.addresses[i]}, function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         if (status !== google.maps.GeocoderStatus.ZERO_RESULTS) {
         // map.setCenter(results[0].geometry.location);
@@ -42,7 +42,7 @@ const mapGeocoder = function() {
           let marker = new google.maps.Marker({
               position: results[0].geometry.location,
               map: map,
-              title:addresses[i]
+              title:app.addresses[i]
           });
           google.maps.event.addListener(marker, 'click', function() {
               infowindow.close();

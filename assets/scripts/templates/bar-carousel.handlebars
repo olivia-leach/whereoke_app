@@ -11,7 +11,9 @@
   <div class="carousel-inner" role="listbox" id="carousel-inner">
     {{#each data}}
       <div class="item">
-        <img src="http://www.uppanorama.com/wp-content/uploads/2013/06/NorthernLightsHoughton.jpg">
+        {{!-- <img src="http://www.uppanorama.com/wp-content/uploads/2013/06/NorthernLightsHoughton.jpg"> --}}
+        {{!-- <img src="https://maps.googleapis.com/maps/api/streetview?size=640x583&location=46.414382,10.013988&heading=151.78&pitch=14&key=AIzaSyDyIX1_gmBhMrXFfGI_0bDXRQibEGqW_B0"> --}}
+        <img src="https://maps.googleapis.com/maps/api/streetview?size=640x583&location={{this.address}},{{this.city}},{{this.state}}&heading=100&scale=2&pitch=5&key=AIzaSyDyIX1_gmBhMrXFfGI_0bDXRQibEGqW_B0">
         <div class="carousel-caption">
           <h2>{{this.name}}</h2>
           <h4>{{this.address}}, {{this.city}}, {{this.state}}</h4>
