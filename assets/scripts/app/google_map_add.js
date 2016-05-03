@@ -7,6 +7,7 @@ let geocoder;
 // let addresses =["Somerville, MA", "Cambridge, MA"];
 
 const mapGeocoder = function() {
+  console.log('updating google map...');
   let bars = app.barsByDay;
   // console.log(bars);
   app.addresses = [];

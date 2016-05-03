@@ -6,7 +6,7 @@ const google = require('./google_map_add.js');
 const appApi = require('./api.js');
 
 const actionsOnLogOut = () => {
-  appApi.getBars(getBarsSuccess, failure);
+  // appApi.getBars(getBarsSuccess, failure);
   $('#log-in-menu-button').show();
   $('#sign-up-menu-button').show();
   $('#change-pw-menu-button').hide();
@@ -25,7 +25,6 @@ const actionsOnLogOut = () => {
   $('.carousel-content').animate({
         'height': '+=20%'
     }, 1000);
-  google.mapGeocoder();
 };
 
 const actionsOnLogIn = () => {
