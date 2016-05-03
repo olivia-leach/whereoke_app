@@ -145,6 +145,9 @@ const newReviewFailure = (data) => {
 };
 
 const removeFavSuccess = () => {
+  console.log(app.removedBar);
+  $('#remove-fav-' + app.removedBar).hide();
+  $('#add-fav-' + app.removedBar).show();
   console.log('favorite removed');
   // appApi.getProfile(getProfileSuccess, getProfilefailure);
   for (let i = 0; i < app.profile.fav_bars.length; i++) {
@@ -247,7 +250,7 @@ const calcYourRating = () => {
   if (bar.fav_profiles.length > 0) {
     for (let i = 0; i < bar.fav_profiles.length; i++) {
       if (bar.fav_profiles[i].id === app.profile.id) {
-        bar.favorite = true;
+        bar.yourFavorite = true;
       }
     }
   }

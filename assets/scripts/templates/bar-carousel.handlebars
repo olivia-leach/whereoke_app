@@ -35,11 +35,11 @@
 
           {{#if this.yourFavorite}}
           <h5 class="logged-in-option" hidden>
-            <a href="#" data-toggle="modal" data-target="#add-favorites-modal-{{this.id}}">Remove from Favorites</a>
+            <a href="#" data-toggle="modal" data-target="#remove-favorites-modal-{{this.id}}" id="remove-fav-{{this.id}}">Remove from Favorites</a><a href="#" data-toggle="modal" data-target="#add-favorites-modal-{{this.id}}" id="add-fav-{{this.id}}" hidden>Add to Favorites</a>
           </h5>
           {{else}}
           <h5 class="logged-in-option" hidden>
-            <a href="#" data-toggle="modal" data-target="#add-favorites-modal-{{this.id}}">Add to Favorites</a>
+            <a href="#" data-toggle="modal" data-target="#remove-favorites-modal-{{this.id}}" id="remove-fav-{{this.id}}" hidden>Remove from Favorites</a><a href="#" data-toggle="modal" data-target="#add-favorites-modal-{{this.id}}" id="add-fav-{{this.id}}">Add to Favorites</a>
           </h5>
           {{/if}}
         </div>
