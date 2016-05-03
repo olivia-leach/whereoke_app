@@ -7,6 +7,9 @@ const getProfile = (success, failure) => {
   $.ajax({
     method : 'GET',
     url : app.api + '/profiles/' + app.user.profile.id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
   }).done(success).fail(failure);
 };
 
@@ -32,6 +35,7 @@ const updateProfile = (success, failure, data) => {
     data,
     headers: {
       "content-type": "application/json",
+      Authorization: 'Token token=' + app.user.token
     },
   }).done(success).fail(failure);
 };
@@ -53,6 +57,7 @@ const newFavorite = (success, failure, data) => {
     data,
     headers : {
       "content-type": "application/json",
+      Authorization: 'Token token=' + app.user.token
     },
   }).done(success).fail(failure);
 };
@@ -63,7 +68,7 @@ const removeFavorite = (success, failure, favID) => {
     method : 'DELETE',
     url : app.api + '/favorites/' + favID,
     headers : {
-      "content-type": "application/json",
+      Authorization: 'Token token=' + app.user.token
     },
   }).done(success).fail(failure);
 };
@@ -77,6 +82,7 @@ const newReview = (success, failure, data) => {
     data,
     headers : {
       "content-type": "application/json",
+      Authorization: 'Token token=' + app.user.token
     },
   }).done(success).fail(failure);
 };

@@ -11,13 +11,13 @@ const createProfileSuccess = (data) => {
 };
 
 const getProfileSuccess = (data) => {
+  app.profile = data.profile;
+  logic.calcYourRating();
   console.log(data);
   console.log('profile accessed');
-  app.profile = data.profile;
   console.log(app.profile);
   logic.userProfile();
   logic.loadFavorites();
-  logic.calcYourRating();
   logic.filterBarsOnDay();
   logic.loadBarCarousel();
   logic.addBarFavorite();

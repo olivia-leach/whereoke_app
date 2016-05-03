@@ -39,7 +39,21 @@ const userProfile = () => {
 const loadFavorites = () => {
   console.log('loading favorites...');
   let data = app.profile.fav_bars;
+
+  for (let i = 0; i < data.length; i++) {
+    let bar = data[i];
+    bar.yourRatingHearts = '';
+    bar.yourRating = app.bars[app.profile.fav_bars[i].id - 1].yourRating;
+    for (let i = 0; i < bar.yourRating; i++) {
+      bar.yourRatingHearts += "<span class='glyphicon glyphicon-heart'></span>";
+    }
+    for (let i = 0; i < 5 - bar.yourRating; i++) {
+      bar.yourRatingHearts += "<span class='grey-heart'><span class='glyphicon glyphicon-heart'></span></span>";
+    }
+  }
+
   console.log(data);
+
   let listingTemplate = require('../templates/listing.handlebars');
   $('.favorites-content').children().remove();
   $('.favorites-content').append(listingTemplate({
@@ -86,19 +100,28 @@ const loadBarCarousel = () => {
   });
 };
 
-const updateBarsSuccess = (data) => {
+const getProfileSuccess = (data) => {
+  app.profile = data.profile;
+  calcYourRating();
   console.log(data);
-  console.log('bars updated');
-  app.bars = data.bars;
-  calcAvgRating();
+  console.log('profile accessed');
+  console.log(app.profile);
+  userProfile();
+  loadFavorites();
   filterBarsOnDay();
   loadBarCarousel();
   $('#carousel-inner').children().first().toggleClass('active');
   $('#carousel-indicators').children().first().toggleClass('active');
-}
+};
+
+const updateBarsSuccess = (data) => {
+  console.log(data);
+  appApi.getProfile(getProfileSuccess, appUi.failure);
+  console.log('bars updated');
+};
 
 const updateBarFailure = (data) => {
-  console.error(error);
+  console.error(data);
   console.log('Error updating bars');
 };
 
@@ -188,6 +211,9 @@ const calcAvgRating = () => {
       for (let i = 0; i < bar.avgRating; i++) {
         bar.avgRatingHearts += "<span class='glyphicon glyphicon-heart'></span>";
       }
+      for (let i = 0; i < 5 - bar.avgRating; i++) {
+        bar.avgRatingHearts += "<span class='grey-heart'><span class='glyphicon glyphicon-heart'></span></span>";
+      }
     }
   }
 };
@@ -202,6 +228,9 @@ const calcYourRating = () => {
           bar.yourRating = bar.reviews[i].rating;
           for (let i = 0; i < bar.yourRating; i++) {
             bar.yourRatingHearts += "<span class='glyphicon glyphicon-heart'></span>";
+          }
+          for (let i = 0; i < 5 - bar.yourRating; i++) {
+            bar.yourRatingHearts += "<span class='grey-heart'><span class='glyphicon glyphicon-heart'></span></span>";
           }
         }
       }

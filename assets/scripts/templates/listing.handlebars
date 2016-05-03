@@ -9,8 +9,8 @@
       <h4 class="bar-name">{{this.name}}</h4>
       <label class="bar-address">{{this.address}}, {{this.city}}, {{this.state}} {{this.zip}}</label>
       <span class="rating-delete-group">
-        {{#if this.avgRating}}
-          <span class='rating'>{{{this.avgRatingHearts}}} </span>
+        {{#if this.yourRating}}
+          <span class='rating'>{{{this.yourRatingHearts}}} </span>
         {{else}}
           <a href="#" id="write-a-review" class="review-test" data-toggle="modal" data-target="#write-review-modal-{{this.id}}">Review this bar</a>
         {{/if}}
