@@ -17,6 +17,7 @@ const signOutSuccess = (data) => {
   $('#bar-profile').hide();
   $('#sign-out-menu-button').hide();
   $('#user-profile-menu-button').hide();
+  $('.logged-in-option').hide();
 };
 
 const signInSuccess = (data) => {
@@ -33,6 +34,7 @@ const signInSuccess = (data) => {
   $('#bar-profile').show();
   $('#sign-out-menu-button').show();
   $('#user-profile-menu-button').show();
+  $('.logged-in-option').show();
 };
 
 const changePWSuccess = (data) => {

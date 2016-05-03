@@ -21,7 +21,18 @@
           {{else}}
             <h5>Bar not yet rated by any users</h5>
           {{/if}}
-          <a href="#" id="write-a-review" class="review-test" data-toggle="modal" data-target="#write-review-modal-{{this.id}}">Write a Review</a> / <a href="#" data-toggle="modal" data-target="#add-favorites-modal-{{this.id}}">Add to Favorites</a>
+
+          {{#if this.yourRating}}
+            <h5 class="logged-in-option" hidden>
+              Your rating: <span class='rating-small'>{{{this.yourRatingHearts}}} </span> /
+              <a href="#" data-toggle="modal" data-target="#add-favorites-modal-{{this.id}}">Add to Favorites</a>
+            </h5>
+          {{else}}
+            <h5 class="logged-in-option" hidden>
+              <a href="#" id="write-a-review" class="logged-in-option" data-toggle="modal" data-target="#write-review-modal-{{this.id}}">Write a Review</a> /
+              <a href="#" data-toggle="modal" data-target="#add-favorites-modal-{{this.id}}" class="logged-in-option">Add to Favorites</a>
+            </h5>
+          {{/if}}
           <br>
           <br>
         </div>

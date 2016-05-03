@@ -70,6 +70,9 @@ const loadBarCarousel = () => {
   $('.carousel-content').append(listingTemplate({
     data
   }));
+  if (app.user) {
+    $('.logged-in-option').show();
+  }
   $('.add-review').on('submit', function (event) {
     event.preventDefault();
     let data = getFormFields(this);
@@ -106,7 +109,7 @@ const newReviewSuccess = (data) => {
 };
 
 const newReviewFailure = (data) => {
-  console.error(error);
+  console.error(data);
   console.log('Error submitting review');
 };
 
@@ -185,7 +188,23 @@ const calcAvgRating = () => {
       for (let i = 0; i < bar.avgRating; i++) {
         bar.avgRatingHearts += "<span class='glyphicon glyphicon-heart'></span>";
       }
+    }
+  }
+};
 
+const calcYourRating = () => {
+  for (let i = 0; i < app.bars.length; i++) {
+    let bar = app.bars[i];
+    bar.yourRatingHearts = '';
+    if (bar.reviews.length > 0) {
+      for (let i = 0; i < bar.reviews.length; i++) {
+        if (bar.reviews[i].profile_id === app.profile.id) {
+          bar.yourRating = bar.reviews[i].rating;
+          for (let i = 0; i < bar.yourRating; i++) {
+            bar.yourRatingHearts += "<span class='glyphicon glyphicon-heart'></span>";
+          }
+        }
+      }
     }
   }
 };
@@ -198,5 +217,6 @@ module.exports = {
   loadBarCarousel,
   addBarFavorite,
   removeBarFavorite,
-  calcAvgRating
+  calcAvgRating,
+  calcYourRating
 };

@@ -17,6 +17,12 @@ const getProfileSuccess = (data) => {
   console.log(app.profile);
   logic.userProfile();
   logic.loadFavorites();
+  logic.calcYourRating();
+  logic.filterBarsOnDay();
+  logic.loadBarCarousel();
+  logic.addBarFavorite();
+  $('#carousel-inner').children().first().toggleClass('active');
+  $('#carousel-indicators').children().first().toggleClass('active');
 };
 
 const updateProfileSuccess = (data) => {
