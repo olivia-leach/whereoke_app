@@ -53,7 +53,7 @@ const addHandlers = () => {
     e.preventDefault();
     $('html, body').animate({
       scrollTop: $("#map-title").offset().top
-    }, 1000);
+    }, 500);
   });
 
 };

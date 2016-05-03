@@ -60,7 +60,7 @@
 }
 
 .fav-list-item {
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .bar-name {
@@ -94,7 +94,7 @@
 }
 
 .favs-title {
-  padding-top: 10px;
+  // padding-top: 5px;
 }
 
 .divider {
@@ -102,4 +102,13 @@
   width: 50px;
   margin-top: 50px;
   border-right: 1px solid $light-grey;
+}
+
+.list-of-favs {
+  // border: 1px solid red;
+  // height: 100px;
+  // overflow: scroll;
+  // &:hover {
+  //   overflow-y: scroll;
+  // }
 }

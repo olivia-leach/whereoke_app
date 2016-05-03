@@ -18,7 +18,7 @@ const filterBarsOnDay = () => {
   }
   app.barsByDay = barsToday;
   console.log(app.barsByDay);
-  google.mapGeocoder();
+  // google.mapGeocoder();
 };
 
 const userProfile = () => {
@@ -145,7 +145,8 @@ const newReviewFailure = (data) => {
 };
 
 const removeFavSuccess = () => {
-  console.log('Favorite removed');
+  console.log('favorite removed');
+  // appApi.getProfile(getProfileSuccess, getProfilefailure);
   for (let i = 0; i < app.profile.fav_bars.length; i++) {
     if (app.profile.fav_bars[i].id == app.removedBar) {
       app.profile.fav_bars.splice(i, 1);
@@ -243,6 +244,13 @@ const calcYourRating = () => {
         }
       }
     }
+  if (bar.fav_profiles.length > 0) {
+    for (let i = 0; i < bar.fav_profiles.length; i++) {
+      if (bar.fav_profiles[i].id === app.profile.id) {
+        bar.favorite = true;
+      }
+    }
+  }
   }
 };
 

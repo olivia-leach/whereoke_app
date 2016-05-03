@@ -1,6 +1,13 @@
 .map-area {
     // padding: 20px 0;
-    height: 10%;
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-area h3 {
+  margin: 0 auto;
 }
 
 .map {

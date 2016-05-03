@@ -33,9 +33,15 @@
             </h4>
           {{/if}}
 
-          <h4 class="logged-in-option" hidden>
+          {{#if this.yourFavorite}}
+          <h5 class="logged-in-option" hidden>
+            <a href="#" data-toggle="modal" data-target="#add-favorites-modal-{{this.id}}">Remove from Favorites</a>
+          </h5>
+          {{else}}
+          <h5 class="logged-in-option" hidden>
             <a href="#" data-toggle="modal" data-target="#add-favorites-modal-{{this.id}}">Add to Favorites</a>
-          </h4>
+          </h5>
+          {{/if}}
         </div>
       </div>
       </div>

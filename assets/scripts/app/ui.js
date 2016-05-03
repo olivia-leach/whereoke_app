@@ -3,6 +3,47 @@
 const app = require('../app-data.js');
 const logic = require('./logic.js');
 const google = require('./google_map_add.js');
+const appApi = require('./api.js');
+
+const actionsOnLogOut = () => {
+  appApi.getBars(getBarsSuccess, failure);
+  $('#log-in-menu-button').show();
+  $('#sign-up-menu-button').show();
+  $('#change-pw-menu-button').hide();
+  $('.logged-out-link').show();
+  $('#user-profile').hide();
+  $('#bar-profile').hide();
+  $('#sign-out-menu-button').hide();
+  $('#user-profile-menu-button').hide();
+  $('.logged-in-option').hide();
+  $('html, body').animate({
+    scrollTop: $("#")
+  }, 1000);
+  $('.map').animate({
+        height: '+=20%'
+    }, 1000);
+  $('.carousel-content').animate({
+        'height': '+=20%'
+    }, 1000);
+};
+
+const actionsOnLogIn = () => {
+  $('#log-in-menu-button').hide();
+  $('#sign-up-menu-button').hide();
+  $('.logged-out-link').hide();
+  $('#change-pw-menu-button').show();
+  $('#user-profile').show();
+  $('#bar-profile').show();
+  $('#sign-out-menu-button').show();
+  $('#user-profile-menu-button').show();
+  $('.logged-in-option').show();
+  $('.map').animate({
+        height: '-=20%'
+    }, 1000);
+  $('.carousel-content').animate({
+        height: '-=20%'
+    }, 1000);
+};
 
 const createProfileSuccess = (data) => {
   console.log(data);
@@ -65,5 +106,7 @@ module.exports = {
   createProfileSuccess,
   getProfileSuccess,
   getBarsSuccess,
-  updateProfileSuccess
+  updateProfileSuccess,
+  actionsOnLogOut,
+  actionsOnLogIn
 };

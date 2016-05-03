@@ -9,24 +9,7 @@ const signOutSuccess = (data) => {
   app.user = data;
   console.log("logged out");
   console.log(app);
-  $('#log-in-menu-button').show();
-  $('#sign-up-menu-button').show();
-  $('#change-pw-menu-button').hide();
-  $('.logged-out-link').show();
-  $('#user-profile').hide();
-  $('#bar-profile').hide();
-  $('#sign-out-menu-button').hide();
-  $('#user-profile-menu-button').hide();
-  $('.logged-in-option').hide();
-  $('html, body').animate({
-    scrollTop: $("#")
-  }, 1000);
-  $('.map').animate({
-        height: '+=20%'
-    }, 1000);
-  $('.carousel-content').animate({
-        'height': '+=20%'
-    }, 1000);
+  appUi.actionsOnLogOut();
 };
 
 const signInSuccess = (data) => {
@@ -35,21 +18,7 @@ const signInSuccess = (data) => {
   console.log(app.user);
   console.log(data.user.email + " logged in");
   appApi.getProfile(appUi.getProfileSuccess, appUi.failure);
-  $('#log-in-menu-button').hide();
-  $('#sign-up-menu-button').hide();
-  $('.logged-out-link').hide();
-  $('#change-pw-menu-button').show();
-  $('#user-profile').show();
-  $('#bar-profile').show();
-  $('#sign-out-menu-button').show();
-  $('#user-profile-menu-button').show();
-  $('.logged-in-option').show();
-  $('.map').animate({
-        height: '-=20%'
-    }, 1000);
-  $('.carousel-content').animate({
-        'height': '-=20%'
-    }, 1000);
+  appUi.actionsOnLogIn();
 };
 
 const changePWSuccess = (data) => {
