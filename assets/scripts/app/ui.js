@@ -25,6 +25,7 @@ const getProfileSuccess = (data) => {
   logic.addBarFavorite();
   $('#carousel-inner').children().first().toggleClass('active');
   $('#carousel-indicators').children().first().toggleClass('active');
+  $("#sidebar-title").text(app.user.email);
 };
 
 const updateProfileSuccess = (data) => {

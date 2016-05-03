@@ -49,6 +49,13 @@ const addHandlers = () => {
     $('#edit-profile').show();
   });
 
+  $('#just-show').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({
+      scrollTop: $("#map-title").offset().top
+    }, 1000);
+  });
+
 };
 
 module.exports = {

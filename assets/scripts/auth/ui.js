@@ -18,6 +18,15 @@ const signOutSuccess = (data) => {
   $('#sign-out-menu-button').hide();
   $('#user-profile-menu-button').hide();
   $('.logged-in-option').hide();
+  $('html, body').animate({
+    scrollTop: $("#")
+  }, 1000);
+  $('.map').animate({
+        height: '+=20%'
+    }, 1000);
+  $('.carousel-content ').animate({
+        height: '+=20%'
+    }, 1000);
 };
 
 const signInSuccess = (data) => {
@@ -35,6 +44,12 @@ const signInSuccess = (data) => {
   $('#sign-out-menu-button').show();
   $('#user-profile-menu-button').show();
   $('.logged-in-option').show();
+  $('.map').animate({
+        height: '-=20%'
+    }, 1000);
+  $('.carousel-content ').animate({
+        height: '-=20%'
+    }, 1000);
 };
 
 const changePWSuccess = (data) => {
