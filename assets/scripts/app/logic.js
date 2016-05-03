@@ -103,6 +103,7 @@ const loadBarCarousel = () => {
 const getProfileSuccess = (data) => {
   app.profile = data.profile;
   calcYourRating();
+  calcAvgRating();
   console.log(data);
   console.log('profile accessed');
   console.log(app.profile);

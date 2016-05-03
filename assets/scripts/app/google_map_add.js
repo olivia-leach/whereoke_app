@@ -19,6 +19,7 @@ const mapGeocoder = function() {
   }
 
   console.log(addresses);
+  let infowindow = new google.maps.InfoWindow();
 
   geocoder = new google.maps.Geocoder();
   let latlng = new google.maps.LatLng(42.3601, -71.0589);
@@ -26,10 +27,8 @@ const mapGeocoder = function() {
   let myOptions = {
     zoom: 12,
     center: latlng,
-  mapTypeControl: true,
-  mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-  navigationControl: true,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    styles: [{"featureType":"all","elementType":"all","stylers":[{"invert_lightness":true},{"saturation":10},{"lightness":30},{"gamma":0.5},{"hue":"#435158"}]}],
+    mapTypeControl: false
   };
   map = new google.maps.Map(document.getElementById("map"), myOptions);
   if (geocoder) {
@@ -40,17 +39,14 @@ const mapGeocoder = function() {
         // map.setCenter(results[0].geometry.location);
         // alllatlng.push(results[0].geometry.location);
 
-          let infowindow = new google.maps.InfoWindow(
-              { content: '<b>'+names[i]+'</b><br>'+cityStates[i],
-                size: new google.maps.Size(150,50)
-              });
-
           let marker = new google.maps.Marker({
               position: results[0].geometry.location,
               map: map,
               title:addresses[i]
           });
           google.maps.event.addListener(marker, 'click', function() {
+              infowindow.close();
+              infowindow.setContent('<b>'+names[i]+'</b><br>'+cityStates[i]);
               infowindow.open(map,marker);
           });
 
