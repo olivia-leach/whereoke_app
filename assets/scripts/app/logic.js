@@ -116,13 +116,19 @@ const getProfileSuccess = (data) => {
 
 const updateBarsSuccess = (data) => {
   console.log(data);
-  appApi.getProfile(getProfileSuccess, appUi.failure);
+  app.bars = data.bars;
+  appApi.getProfile(getProfileSuccess, getProfilefailure);
   console.log('bars updated');
 };
 
 const updateBarFailure = (data) => {
   console.error(data);
   console.log('Error updating bars');
+};
+
+const getProfilefailure = (data) => {
+  console.error(data);
+  console.log('Error getting profile');
 };
 
 const newReviewSuccess = (data) => {

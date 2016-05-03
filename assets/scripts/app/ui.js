@@ -11,6 +11,8 @@ const createProfileSuccess = (data) => {
 };
 
 const getProfileSuccess = (data) => {
+  console.log('in getProfileSuccess');
+  console.log(data);
   app.profile = data.profile;
   logic.calcYourRating();
   console.log(data);
