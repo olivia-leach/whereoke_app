@@ -25,6 +25,7 @@ const actionsOnLogOut = () => {
   $('.carousel-content').animate({
         'height': '+=20%'
     }, 1000);
+  google.mapGeocoder();
 };
 
 const actionsOnLogIn = () => {

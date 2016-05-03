@@ -3,6 +3,7 @@
 const app = require('../app-data.js');
 const appApi = require('./api.js');
 const appUi = require('./ui.js');
+const logic = require('./logic.js');
 
 const addHandlers = () => {
   // Closes the sidebar menu
@@ -49,11 +50,12 @@ const addHandlers = () => {
     $('#edit-profile').show();
   });
 
-  $('#just-show').on('click', function(e) {
+  $('.alt-day').on('click', function(e) {
     e.preventDefault();
-    $('html, body').animate({
-      scrollTop: $("#map-title").offset().top
-    }, 500);
+    let altDay = $(this).text();
+    $('#day-of-week').text(altDay);
+    logic.selectAltDay(altDay);
+    logic.reloadBarCarousel();
   });
 
 };

@@ -53,25 +53,6 @@
 
     </div>
 
-    <!-- Header -->
-    <!--<div class='header-image'></div>
-
-    <div class="rest-of-header">
-    <header id="top logged-out-header" class="header">
-        <div class="text-vertical-center">
-          <h1>Whereoke</h1>
-          <h3 class="logged-out-link"><a href="#" data-toggle="modal" data-target="#log-in-modal">Log In</a> / <a href="#" data-toggle="modal" data-target="#sign-up-modal">Register</a></h3>
-        </div>
-        <div class="text-vertical-bottom">
-        <a href="#map-title" id="just-show" class="just-show">
-          <span class="logged-out-link">Just </span>Show Me the Map
-          <br>
-          <span class="glyphicon glyphicon-menu-down"</span>
-        </a>
-      </div>
-    </header>
-  </div>-->
-
   <header id="top" class="header">
     <div class='header-image'></div>
     <div class='rest-of-header'>
@@ -79,29 +60,41 @@
     </div>
   </header>
 
-    <!-- Map -->
-    <aside id="map-title" class="map-area bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h3>Today is
-            <!--<span class="dropdown">-->
-              <a id="day-of-week" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white"></a>
-              <!--<ul class="dropdown-menu" aria-labelledby="dLabel" style="color:black">
-                <li id="new-date-picked">Monday</li>
-                <li id="new-date-picked">Tuesday</li>
-                <li id="new-date-picked">Wednesday</li>
-                <li id="new-date-picked">Thursday</li>
-                <li id="new-date-picked">Friday</li>
-                <li id="new-date-picked">Saturday</li>
-                <li id="new-date-picked">Sunday</li>
-              </ul>
-            </span>-->
-            and I've got a song that needs to be sung.</h3>
-          </div>
-        </div>
+  <nav class="navbar bg-primary">
+    <div class="navbar-container"
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
       </div>
-    </aside>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <p class="navbar-text">Today is</p>
+          <li class="dropdown">
+            <button type="button" class="btn btn-default navbar-btn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="day-of-week" style="font-weight: bold">...</button>
+            <ul class="dropdown-menu">
+              <li><a href="#" class="alt-day">Monday</a></li>
+              <li><a href="#" class="alt-day">Tuesday</a></li>
+              <li><a href="#" class="alt-day">Wednesday</a></li>
+              <li><a href="#" class="alt-day">Thursday</a></li>
+              <li><a href="#" class="alt-day">Friday</a></li>
+              <li><a href="#" class="alt-day">Saturday</a></li>
+              <li><a href="#" class="alt-day">Sunday</a></li>
+            </ul>
+          </li>
+          <p class="navbar-text">and I've got a song that needs to be sung.</p>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </div>
+  </nav>
 
     <div id="map" class="map"></div>
     <div class="carousel-content"></div>
@@ -379,7 +372,7 @@
     </div>
   </div>
 
-  <!-- Eror favoriting bar -->
+  <!-- Error favoriting modal -->
   <div class="modal fade" id="fav-fail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -393,5 +386,7 @@
       </div>
     </div>
   </div>
+
+  <div class="carousel-modals"></div>
 
 </html>

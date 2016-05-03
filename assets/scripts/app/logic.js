@@ -21,6 +21,19 @@ const filterBarsOnDay = () => {
   google.mapGeocoder();
 };
 
+const selectAltDay = (altDay) => {
+  let allBars = app.bars;
+  let barsToday = [];
+  for (let i = 0; i < allBars.length; i++) {
+    if (allBars[i].nights.includes(altDay) ) {
+      barsToday.push(allBars[i]);
+    }
+  }
+  app.barsByDay = barsToday;
+  console.log(app.barsByDay);
+  google.mapGeocoder();
+};
+
 const userProfile = () => {
 
   if(app.profile.username === null) {
@@ -74,6 +87,31 @@ const loadFavorites = () => {
   removeBarFavorite();
 };
 
+const reloadBarCarousel = () => {
+  console.log('reloading bar carousel...');
+  let data = app.barsByDay;
+  console.log(data);
+
+  let listingTemplate = require('../templates/bar-carousel.handlebars');
+  $('.carousel-content').children().remove();
+  $('.carousel-content').append(listingTemplate({
+    data
+  }));
+
+  let modalTemplate = require('../templates/carousel-modals.handlebars');
+  $('.carousel-modals').children().remove();
+  $('.carousel-modals').append(modalTemplate({
+    data
+  }));
+
+  if (app.user) {
+    $('.logged-in-option').show();
+  }
+
+  $('#carousel-inner').children().first().toggleClass('active');
+  $('#carousel-indicators').children().first().toggleClass('active');
+}
+
 const loadBarCarousel = () => {
   console.log('loading bar carousel...');
   let data = app.barsByDay;
@@ -84,6 +122,13 @@ const loadBarCarousel = () => {
   $('.carousel-content').append(listingTemplate({
     data
   }));
+
+  let modalTemplate = require('../templates/carousel-modals.handlebars');
+  $('.carousel-modals').children().remove();
+  $('.carousel-modals').append(modalTemplate({
+    data
+  }));
+
   if (app.user) {
     $('.logged-in-option').show();
   }
@@ -289,5 +334,7 @@ module.exports = {
   addBarFavorite,
   removeBarFavorite,
   calcAvgRating,
-  calcYourRating
+  calcYourRating,
+  selectAltDay,
+  reloadBarCarousel
 };
