@@ -51,6 +51,7 @@ const addHandlers = () => {
   });
 
   $('.alt-day').on('click', function(e) {
+    app.mapReloadCount += 1;
     e.preventDefault();
     let altDay = $(this).text();
     $('#day-of-week').text(altDay);
