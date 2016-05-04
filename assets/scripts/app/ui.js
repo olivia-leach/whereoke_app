@@ -21,7 +21,11 @@ const actionsOnLogOut = () => {
   }, 1000);
   $('.map').animate({
         height: '+=20%'
-    }, 1000);
+    }, 1000, function() {
+      if (app.mapReloadCount > 0) {
+        google.mapGeocoder();
+      }
+    });
   $('.carousel-content').animate({
         'height': '+=20%'
     }, 1000);
@@ -67,7 +71,11 @@ const getProfileSuccess = (data) => {
   console.log(app.profile);
   logic.userProfile();
   logic.loadFavorites();
-  logic.filterBarsOnDay();
+  if ($('#day-of-week').text() !== logic.today) {
+    logic.selectAltDay($('#day-of-week').text());
+  } else {
+    logic.filterBarsOnDay();
+  }
   logic.loadBarCarousel();
   logic.addBarFavorite();
   $('#carousel-inner').children().first().toggleClass('active');
