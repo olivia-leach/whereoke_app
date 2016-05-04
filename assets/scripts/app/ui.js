@@ -71,7 +71,11 @@ const getProfileSuccess = (data) => {
   console.log(app.profile);
   logic.userProfile();
   logic.loadFavorites();
-  logic.filterBarsOnDay();
+  if ($('#day-of-week').text() !== logic.today) {
+    logic.selectAltDay($('#day-of-week').text());
+  } else {
+    logic.filterBarsOnDay();
+  }
   logic.loadBarCarousel();
   logic.addBarFavorite();
   $('#carousel-inner').children().first().toggleClass('active');
